@@ -61,16 +61,16 @@ public class SongsFragment extends Fragment {
         words.add(new Word("Childish Gambino", "3005", R.drawable.childish_gambino, R.raw.childish_gambino_3005));
         words.add(new Word("Childish Gambino", "Freestyle", R.drawable.childish_gambino, R.raw.childish_gambino_freestyle));
         words.add(new Word("Gas Lab", "Chemistry", R.drawable.gas_lab, R.raw.gas_lab_chemistry));
-        words.add(new Word("Gas Lab (feat. Natayla & Traum Diggs)", "Jazz Hop", R.drawable.gas_lab, R.raw.childish_gambino_3005));
-        words.add(new Word("J.Cole", "Losing my Balance", R.drawable.j_cole, R.raw.childish_gambino_3005));
-        words.add(new Word("JABS (feat. Willow)", "Payíva (Prod. JABS)", R.drawable.willow, R.raw.childish_gambino_3005));
-        words.add(new Word("Téo", "Enlightened Now", R.drawable.teo, R.raw.childish_gambino_3005));
-        words.add(new Word("Téo", "How Low", R.drawable.teo, R.raw.childish_gambino_3005));
-        words.add(new Word("Téo", "Selfless-ish", R.drawable.teo, R.raw.childish_gambino_3005));
-        words.add(new Word("Tyler The Creator (feat. Frank Ocean) ", "She", R.drawable.tyler_the_creator, R.raw.childish_gambino_3005));
-        words.add(new Word("Willow (feat. SZA) ", "9", R.drawable.jabs_willow, R.raw.childish_gambino_3005));
-        words.add(new Word("Willow ", "Female Energy", R.drawable.jabs_willow, R.raw.childish_gambino_3005));
-        words.add(new Word("Willow ", "Marceline", R.drawable.jabs_willow, R.raw.childish_gambino_3005));
+        words.add(new Word("Gas Lab (feat. Natayla & Traum Diggs)", "Jazz Hop", R.drawable.gas_lab, R.raw.gas_lab_jazz_hop));
+        words.add(new Word("J.Cole", "Losing my Balance", R.drawable.j_cole, R.raw.jcole_losing_my_balance));
+        words.add(new Word("JABS (feat. Willow)", "Payíva (Prod. JABS)", R.drawable.willow, R.raw.jabs_payiva));
+        words.add(new Word("Téo", "Enlightened Now", R.drawable.teo, R.raw.teo_enlightened_now));
+        words.add(new Word("Téo", "How Low", R.drawable.teo, R.raw.teo_how_low));
+        words.add(new Word("Téo", "Selfless-ish", R.drawable.teo, R.raw.teo_selflessish));
+        words.add(new Word("Tyler The Creator (feat. Frank Ocean) ", "She", R.drawable.tyler_the_creator, R.raw.tyler_the_creator_she));
+        words.add(new Word("Willow (feat. SZA) ", "9", R.drawable.jabs_willow, R.raw.willow_9));
+        words.add(new Word("Willow ", "Female Energy", R.drawable.jabs_willow, R.raw.willow_female_energy));
+        words.add(new Word("Willow ", "Marceline", R.drawable.jabs_willow, R.raw.willow_marceline));
 
 
         WordAdapter itemsAdapter = new WordAdapter(getActivity(), words, R.color.category_colors);
