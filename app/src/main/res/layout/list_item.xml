@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="@dimen/list_item_height"
-    android:background="@color/tan_background">
+    android:background="@color/transparent_background">
 
 
     <ImageView
@@ -30,7 +30,7 @@
             android:paddingLeft="16dp"
             android:paddingTop="16dp"
             android:textAppearance="?android:textAppearanceMedium"
-            android:textColor="@android:color/white"
+            android:textColor="@color/text_color"
             android:textStyle="bold" />
 
         <TextView
@@ -43,16 +43,19 @@
             android:gravity="top"
             android:paddingLeft="16dp"
             android:textAppearance="?android:textAppearanceMedium"
-            android:textColor="@android:color/white" />
+            android:textColor="@color/text_color" />
     </LinearLayout>
 
+
+    <!--<Replace ImageView with a Play Buttons horizontal LinearLayout so each button on the Layout should have the same weight-->
+    <!--<Control spacing with padding in between buttons-->
     <ImageView
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="16dp"
-        android:src="@drawable/ic_play_arrow" />
+        android:src="@drawable/play_arrow" />
 
 
 </RelativeLayout>

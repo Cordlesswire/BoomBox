@@ -59,8 +59,8 @@ public class WordAdapter extends ArrayAdapter<Word> {
         int color = ContextCompat.getColor(getContext(),mColorResourceId);
         textContainer.setBackgroundColor(color);
 
-//        int audio = currentWord.getSoundResourceId();
-//        mediaPlayer =  mediaPlayer.create(WordAdapter.this,audio);
+     //int audio = currentWord.getSoundResourceId();
+     //mediaPlayer =  mediaPlayer.create(WordAdapter.this,audio);
           return listItemView;
     }
 }

@@ -2,7 +2,6 @@ package com.example.android.miwok;
 
 
 import android.content.Context;
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -14,7 +13,7 @@ public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
 
 
 
-    private String tabTitles[] = new String[] { "Numbers", "Family", "Colors","Phrases" };
+    //private String tabTitles[] = new String[] { "Albums", "Songs", "Artists","Playlists" };
     private Context mContext;
 
 
@@ -28,13 +27,13 @@ public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         if (position == 0) {
-            return new NumbersFragment();
+            return new AlbumsFragment();
         } else if (position == 1) {
-            return new FamilyFragment();
+            return new SongsFragment();
         } else if (position == 2) {
-            return new ColorsFragment();
+            return new ArtistsFragment();
         } else {
-            return new PhrasesFragment();
+            return new PlaylistsFragment();
         }
     }
 
@@ -46,13 +45,13 @@ public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
     @Override
     public CharSequence getPageTitle(int position) {
         if (position == 0) {
-            return mContext.getString(R.string.category_numbers);
+            return mContext.getString(R.string.category_albums);
         } else if (position == 1) {
-            return mContext.getString(R.string.category_family);
+            return mContext.getString(R.string.category_songs);
         } else if (position == 2) {
-            return mContext.getString(R.string.category_colors);
+            return mContext.getString(R.string.category_artists);
         } else {
-            return mContext.getString(R.string.category_phrases);
+            return mContext.getString(R.string.category_playlists);
         }
     }
 
