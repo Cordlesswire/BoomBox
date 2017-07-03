@@ -64,15 +64,15 @@ public class PlaylistsFragment extends Fragment {
 
         //We don't need to make the ListView play sound when its clicked...edit the parameters so that we don't have to add a raw file
         words.add(new Word("Name of The Playlist", "Small description e.g: mood sad", R.raw.childish_gambino_3005));
-        words.add(new Word("Name of The Playlist", "Small description ", R.raw.childish_gambino_3005));
-        words.add(new Word("Name of The Playlist", "Small description ", R.raw.childish_gambino_3005));
-        words.add(new Word("Name of The Playlist", "Small description ", R.raw.childish_gambino_3005));
-        words.add(new Word("Name of The Playlist", "Small description ", R.raw.childish_gambino_3005));
-        words.add(new Word("Name of The Playlist", "Small description ", R.raw.childish_gambino_3005));
-        words.add(new Word("Name of The Playlist", "Small description ", R.raw.childish_gambino_3005));
-        words.add(new Word("Name of The Playlist", "Small description ", R.raw.childish_gambino_3005));
-        words.add(new Word("Name of The Playlist", "Small description ", R.raw.childish_gambino_3005));
-        words.add(new Word("Name of The Playlist", "Small description ", R.raw.childish_gambino_3005));
+        words.add(new Word("Name of The Playlist", "Small description e.g: mood sad", R.raw.childish_gambino_3005));
+        words.add(new Word("Name of The Playlist", "Small description e.g: mood sad", R.raw.childish_gambino_3005));
+        words.add(new Word("Name of The Playlist", "Small description e.g: mood sad", R.raw.childish_gambino_3005));
+        words.add(new Word("Name of The Playlist", "Small description e.g: mood sad", R.raw.childish_gambino_3005));
+        words.add(new Word("Name of The Playlist", "Small description e.g: mood sad", R.raw.childish_gambino_3005));
+        words.add(new Word("Name of The Playlist", "Small description e.g: mood sad", R.raw.childish_gambino_3005));
+        words.add(new Word("Name of The Playlist", "Small description e.g: mood sad", R.raw.childish_gambino_3005));
+        words.add(new Word("Name of The Playlist", "Small description e.g: mood sad", R.raw.childish_gambino_3005));
+        words.add(new Word("Name of The Playlist", "Small description e.g: mood sad", R.raw.childish_gambino_3005));
 
 
 
