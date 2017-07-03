@@ -59,7 +59,6 @@ public class AlbumsFragment extends Fragment {
 
         final ArrayList<Word> words = new ArrayList<>();
 
-
         words.add(new Word("one","een",R.drawable.childish_gambino,R.raw.childish_gambino_3005));
         words.add(new Word("two","twee",R.drawable.childish_gambino,R.raw.childish_gambino_3005));
         words.add(new Word("three","drie",R.drawable.childish_gambino,R.raw.childish_gambino_3005));
