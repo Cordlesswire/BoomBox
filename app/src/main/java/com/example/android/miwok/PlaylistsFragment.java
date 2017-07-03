@@ -62,16 +62,17 @@ public class PlaylistsFragment extends Fragment {
 
         final ArrayList<Word> words = new ArrayList<>();
 
-        words.add(new Word("Where are you going?", "Waar gaan jy heen?", R.raw.childish_gambino_3005));
-        words.add(new Word("What is your name?", "Wat is jou naam?", R.raw.childish_gambino_3005));
-        words.add(new Word("My name is...", "My naam is...", R.raw.childish_gambino_3005));
-        words.add(new Word("I don't speak Afrikaans", "Ek praat nie Afrikaans nie", R.raw.childish_gambino_3005));
-        words.add(new Word("Do you speak English?", "Praat jy Engels?", R.raw.childish_gambino_3005));
-        words.add(new Word("Can you please write it down", "Kan jy dit asseblief neerskryf?", R.raw.childish_gambino_3005));
-        words.add(new Word("I don't  understand", "Ek verstaan nie", R.raw.childish_gambino_3005));
-        words.add(new Word("Pardon?", "Eksuus", R.raw.childish_gambino_3005));
-        words.add(new Word("Please speak more slowly", "Praat assemblief stadiger", R.raw.childish_gambino_3005));
-        words.add(new Word("Can please repeat that in English", "Kan jy dit assemblief in Engels herhaal", R.raw.childish_gambino_3005));
+        //We don't need to make the ListView play sound when its clicked...edit the parameters so that we don't have to add a raw file
+        words.add(new Word("Name of The Playlist", "Small description e.g: mood sad", R.raw.childish_gambino_3005));
+        words.add(new Word("Name of The Playlist", "Small description ", R.raw.childish_gambino_3005));
+        words.add(new Word("Name of The Playlist", "Small description ", R.raw.childish_gambino_3005));
+        words.add(new Word("Name of The Playlist", "Small description ", R.raw.childish_gambino_3005));
+        words.add(new Word("Name of The Playlist", "Small description ", R.raw.childish_gambino_3005));
+        words.add(new Word("Name of The Playlist", "Small description ", R.raw.childish_gambino_3005));
+        words.add(new Word("Name of The Playlist", "Small description ", R.raw.childish_gambino_3005));
+        words.add(new Word("Name of The Playlist", "Small description ", R.raw.childish_gambino_3005));
+        words.add(new Word("Name of The Playlist", "Small description ", R.raw.childish_gambino_3005));
+        words.add(new Word("Name of The Playlist", "Small description ", R.raw.childish_gambino_3005));
 
 
 

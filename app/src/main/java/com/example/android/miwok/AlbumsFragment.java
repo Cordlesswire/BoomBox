@@ -59,10 +59,10 @@ public class AlbumsFragment extends Fragment {
 
         final ArrayList<Word> words = new ArrayList<>();
 
-        words.add(new Word("one","een",R.drawable.childish_gambino,R.raw.childish_gambino_3005));
-        words.add(new Word("two","twee",R.drawable.childish_gambino,R.raw.childish_gambino_3005));
-        words.add(new Word("three","drie",R.drawable.childish_gambino,R.raw.childish_gambino_3005));
-        words.add(new Word("four","vier",R.drawable.childish_gambino,R.raw.childish_gambino_3005));
+        words.add(new Word("Childish Gambino","een",R.drawable.childish_gambino,R.raw.childish_gambino_3005));
+        words.add(new Word("Childish Gambino","twee",R.drawable.childish_gambino,R.raw.childish_gambino_3005));
+        words.add(new Word("Gas Lab","drie",R.drawable.childish_gambino,R.raw.childish_gambino_3005));
+        words.add(new Word("Gas Lab","vier",R.drawable.childish_gambino,R.raw.childish_gambino_3005));
         words.add(new Word("five","vyf",R.drawable.childish_gambino,R.raw.childish_gambino_3005));
         words.add(new Word("six","ses",R.drawable.childish_gambino,R.raw.childish_gambino_3005));
         words.add(new Word("seven","sewe",R.drawable.childish_gambino,R.raw.childish_gambino_3005));
