@@ -58,7 +58,7 @@ public class SongsFragment extends Fragment {
 
         final ArrayList<Word> words = new ArrayList<>();
 
-        words.add(new Word("Childish Gambino", "3005", R.drawable.childish_gambino, R.raw.childish_gambino_3005));
+        words.add(new Word("Childish Gambino", "3005", R.drawable.childish_gambino_because, R.raw.childish_gambino_3005));
         words.add(new Word("Childish Gambino", "Freestyle", R.drawable.childish_gambino, R.raw.childish_gambino_freestyle));
         words.add(new Word("Gas Lab", "Chemistry", R.drawable.gas_lab, R.raw.gas_lab_chemistry));
         words.add(new Word("Gas Lab (feat. Natayla & Traum Diggs)", "Jazz Hop", R.drawable.gas_lab, R.raw.gas_lab_jazz_hop));

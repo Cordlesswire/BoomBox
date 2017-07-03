@@ -60,6 +60,8 @@ public class ArtistsFragment extends Fragment {
 
         final ArrayList<Word> words = new ArrayList<>();
 
+        //Don't need to play raw files but redirect the user to the specified artists songs list when the user clicks on whichever artist
+        //Can leave it as a ListView information will be easier for the user to read this way
         words.add(new Word("Childish Gambino","number of songs in memory",R.drawable.childish_gambino,R.raw.childish_gambino_3005));
         words.add(new Word("Gas Lab","number of songs in memory",R.drawable.gas_lab,R.raw.childish_gambino_3005));
         words.add(new Word("J.Cole","number of songs in memory",R.drawable.j_cole,R.raw.childish_gambino_3005));
