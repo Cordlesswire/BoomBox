@@ -1,8 +1,6 @@
 package com.example.android.miwok;
 
-/**
- * Created by Ashmita on 13-01-2017.
- */
+
 
 public class Word {
 
