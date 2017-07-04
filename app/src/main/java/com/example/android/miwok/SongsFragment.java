@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -19,7 +20,6 @@ import java.util.ArrayList;
  * A simple {@link Fragment} subclass.
  */
 public class SongsFragment extends Fragment {
-
     private MediaPlayer mMediaPlayer;
     private MediaPlayer.OnCompletionListener mCompletionListener = new MediaPlayer.OnCompletionListener() {
         @Override
@@ -28,11 +28,14 @@ public class SongsFragment extends Fragment {
         }
     };
 
+
+
     private AudioManager mAudioManager;
     AudioManager.OnAudioFocusChangeListener afListener = new AudioManager.OnAudioFocusChangeListener() {
         public void onAudioFocusChange(int focusChange) {
             if (focusChange == AudioManager.AUDIOFOCUS_GAIN) {
                 mMediaPlayer.start();
+
             } else if (focusChange == AudioManager.AUDIOFOCUS_LOSS) {
                 releaseMediaPlayer();
             } else if (focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT || focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK) {
@@ -76,6 +79,8 @@ public class SongsFragment extends Fragment {
         WordAdapter itemsAdapter = new WordAdapter(getActivity(), words, R.color.category_colors);
         ListView listView = (ListView) rootView.findViewById(R.id.list);
 
+
+
         listView.setAdapter(itemsAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -103,6 +108,8 @@ public class SongsFragment extends Fragment {
     public void onStop() {
         super.onStop();
         releaseMediaPlayer();
+        //iconToDisplay.setVisibility(View.GONE);
+
     }
 
     private void releaseMediaPlayer() {

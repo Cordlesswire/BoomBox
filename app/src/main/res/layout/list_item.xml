@@ -50,12 +50,25 @@
     <!--<Replace ImageView with a Play Buttons horizontal LinearLayout so each button on the Layout should have the same weight-->
     <!--<Control spacing with padding in between buttons-->
     <ImageView
+        android:id="@+id/imagePlay"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="16dp"
         android:src="@drawable/white_play_button" />
+
+
+    <ImageView
+        android:id="@+id/imageEqualizer"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="16dp"
+        android:background="@color/text_color"
+        android:src="@drawable/equalizer_icon"
+        android:visibility="gone"/>
 
 
 </RelativeLayout>
