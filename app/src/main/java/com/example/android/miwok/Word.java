@@ -4,40 +4,40 @@ package com.example.android.miwok;
 
 public class Word {
 
-    private String mMiwokTranslation;
-    private String mDefaultTransaltion;
+    private String mTitle;
+    private String mArtistName;
 
     private static final int NO_IMAGE_PROVIDED = -1;
     private int mImageResourceId = NO_IMAGE_PROVIDED;
 
     private int mSoundResourceId;
 
-    public Word(String defaultTransaltion,String miwokTranslation,int soundResourceId)
+    public Word(String artistName,String songTitle,int soundResourceId)
     {
-        mDefaultTransaltion = defaultTransaltion;
-        mMiwokTranslation = miwokTranslation;
+        mArtistName = artistName;
+        mTitle = songTitle;
         mSoundResourceId = soundResourceId;
 
     }
 
-    public Word(String defaultTransaltion,String miwokTranslation,int imageResourceId,int soundResourceId)
+    public Word(String artistName,String songTitle,int imageResourceId,int soundResourceId)
     {
-        mDefaultTransaltion = defaultTransaltion;
-        mMiwokTranslation = miwokTranslation;
+        mArtistName = artistName;
+        mTitle = songTitle;
         mImageResourceId = imageResourceId;
         mSoundResourceId = soundResourceId;
 
     }
 
-    public String getDefaultTranslation()
+    public String getArtistName()
     {
 
-        return mDefaultTransaltion;
+        return mArtistName;
     }
 
-    public String getMiwokTranslation()
+    public String getTitle()
     {
-        return mMiwokTranslation;
+        return mTitle;
     }
 
     public int getImageResourceId()
@@ -58,8 +58,8 @@ public class Word {
     @Override
     public String toString() {
         return "Word{" +
-                "mMiwokTranslation='" + mMiwokTranslation + '\'' +
-                ", mDefaultTransaltion='" + mDefaultTransaltion + '\'' +
+                "mTitle='" + mTitle + '\'' +
+                ", mArtistName='" + mArtistName + '\'' +
                 ", mImageResourceId=" + mImageResourceId +
                 ", mSoundResourceId=" + mSoundResourceId +
                 '}';

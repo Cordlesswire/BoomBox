@@ -22,7 +22,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/miwok_text_view"
+            android:id="@+id/title_text_view"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -34,10 +34,10 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/default_text_view"
+            android:id="@+id/artistname_text_view"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_below="@+id/miwok_text_view"
+            android:layout_below="@+id/title_text_view"
             android:layout_toRightOf="@+id/image"
             android:layout_weight="1"
             android:gravity="top"
@@ -55,7 +55,7 @@
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="16dp"
-        android:src="@drawable/play_arrow" />
+        android:src="@drawable/white_play_button" />
 
 
 </RelativeLayout>

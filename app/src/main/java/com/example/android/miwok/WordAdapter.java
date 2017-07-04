@@ -39,11 +39,11 @@ public class WordAdapter extends ArrayAdapter<Word> {
 
         Word currentWord = getItem(position);
 
-        TextView defaultWord = (TextView) listItemView.findViewById(R.id.default_text_view);
-        defaultWord.setText(currentWord.getDefaultTranslation());
+        TextView defaultWord = (TextView) listItemView.findViewById(R.id.artistname_text_view);
+        defaultWord.setText(currentWord.getArtistName());
 
-        TextView miwokWord = (TextView) listItemView.findViewById(R.id.miwok_text_view);
-        miwokWord.setText(currentWord.getMiwokTranslation());
+        TextView titleWord = (TextView) listItemView.findViewById(R.id.title_text_view);
+        titleWord.setText(currentWord.getTitle());
         ImageView image = (ImageView) listItemView.findViewById(R.id.image);
 
 
@@ -59,8 +59,8 @@ public class WordAdapter extends ArrayAdapter<Word> {
         int color = ContextCompat.getColor(getContext(),mColorResourceId);
         textContainer.setBackgroundColor(color);
 
-     //int audio = currentWord.getSoundResourceId();
-     //mediaPlayer =  mediaPlayer.create(WordAdapter.this,audio);
+           //int audio = currentWord.getSoundResourceId();
+           //mediaPlayer =  mediaPlayer.create(WordAdapter.this,audio);
           return listItemView;
     }
 }
