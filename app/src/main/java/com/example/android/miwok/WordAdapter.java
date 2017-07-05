@@ -39,11 +39,15 @@ public class WordAdapter extends ArrayAdapter<Word> {
 
         Word currentWord = getItem(position);
 
-        TextView defaultWord = (TextView) listItemView.findViewById(R.id.artistname_text_view);
-        defaultWord.setText(currentWord.getArtistName());
+        //This returns the artist name and displays it on the ListView
+        TextView artistName = (TextView) listItemView.findViewById(R.id.artistname_text_view);
+        artistName.setText(currentWord.getArtistName());
 
+        //This returns the Song Title and displays it on the ListView
         TextView titleWord = (TextView) listItemView.findViewById(R.id.title_text_view);
         titleWord.setText(currentWord.getTitle());
+
+        //This returns the Album art of each song or album and displays it on the ListView
         ImageView image = (ImageView) listItemView.findViewById(R.id.image);
 
 
