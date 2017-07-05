@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -79,6 +81,9 @@ public class PlaylistsFragment extends Fragment {
         WordAdapter itemsAdapter = new WordAdapter(getActivity(), words, R.color.category_colors);
         ListView listView = (ListView) rootView.findViewById(R.id.list);
 
+        //ImageView hidePlayIcon = (ImageView) rootView.findViewById(R.id.imagePlay);
+        //hidePlayIcon.setVisibility(View.GONE);
+
         listView.setAdapter(itemsAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -124,5 +129,7 @@ public class PlaylistsFragment extends Fragment {
             mAudioManager.abandonAudioFocus(afListener);
         }
     }
+
+
 
 }
