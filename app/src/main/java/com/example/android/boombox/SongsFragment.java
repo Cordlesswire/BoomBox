@@ -28,7 +28,7 @@ public class SongsFragment extends Fragment {
 
     private Handler songHnadler = new Handler();
 
-    private ImageView previousButton, rewindButton, pauseButton, playButton, forwardButton, nextButton;
+    private ImageView previousButton, rewindButton, pauseButton, forwardButton, nextButton;
     private SeekBar seekBar;
     private TextView startTimeView, songTitle, endTimeView;
 
@@ -79,7 +79,7 @@ public class SongsFragment extends Fragment {
         previousButton = (ImageView) rootView.findViewById(R.id.previousButton);
         rewindButton = (ImageView) rootView.findViewById(R.id.rewindButton);
         pauseButton = (ImageView) rootView.findViewById(R.id.pauseButton);
-        playButton = (ImageView) rootView.findViewById(R.id.playButton);
+        //playButton = (ImageView) rootView.findViewById(R.id.playButton);
         forwardButton = (ImageView) rootView.findViewById(R.id.forwardButton);
         nextButton = (ImageView) rootView.findViewById(R.id.nextButton);
 
@@ -91,6 +91,10 @@ public class SongsFragment extends Fragment {
 
 
         mAudioManager = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
+
+
+
+
 
         final ArrayList<Word> words = new ArrayList<>();
 
@@ -159,7 +163,5 @@ public class SongsFragment extends Fragment {
     }
 
 
-    //methods for music control buttons
-    //first make the buttons clickable than manipulate the sound
 
 }

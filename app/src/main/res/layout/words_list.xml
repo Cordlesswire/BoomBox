@@ -25,18 +25,21 @@
         <TextView
             android:id="@+id/startTime"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
 
 
         <TextView
             android:id="@+id/songTitle"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
 
         <TextView
             android:id="@+id/endTime"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
     </LinearLayout>
 
 
@@ -71,46 +74,46 @@
             android:id="@+id/previousButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="23dp"
+            android:padding="26dp"
             android:src="@drawable/previous_track" />
 
         <ImageView
             android:id="@+id/rewindButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="23dp"
+            android:padding="26dp"
             android:src="@drawable/rewind_button" />
 
         <ImageView
             android:id="@+id/pauseButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="23dp"
+            android:padding="26dp"
             android:src="@drawable/pause_button" />
 
         <!--<Need a method to make the Play button replace the Pause button after its pressed for Media player to continue where it stopped-->
-         <ImageView
-                android:id="@+id/playButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="23dp"
-                android:src="@drawable/play_button" />
+          <!--<<ImageView
+                  android:id="@+id/playButton"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:padding="23dp"
+                  android:src="@drawable/play_button" />-->
 
-       <ImageView
-           android:id="@+id/forwardButton"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:padding="23dp"
-           android:src="@drawable/fast_forward_button" />
+     <ImageView
+         android:id="@+id/forwardButton"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:padding="26dp"
+         android:src="@drawable/fast_forward_button" />
 
-       <ImageView
-           android:id="@+id/nextButton"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:padding="23dp"
-           android:src="@drawable/next_button" />
+     <ImageView
+         android:id="@+id/nextButton"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:padding="26dp"
+         android:src="@drawable/next_button" />
 
-   </LinearLayout>
+ </LinearLayout>
 </RelativeLayout>
 
 
