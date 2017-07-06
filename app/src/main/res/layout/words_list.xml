@@ -9,37 +9,37 @@
         android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:drawSelectorOnTop="true"
         android:layout_above="@+id/seekBar"
-        android:orientation="vertical"/>
+        android:drawSelectorOnTop="true"
+        android:orientation="vertical" />
 
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_above="@+id/seekBar"
         android:layout_below="@+id/list"
-        android:layout_above="@+id/seekBar">
+        android:orientation="horizontal">
 
 
         <TextView
             android:id="@+id/startTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+            android:layout_weight="1" />
 
 
         <TextView
             android:id="@+id/songTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+            android:layout_weight="1" />
 
         <TextView
             android:id="@+id/endTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+            android:layout_weight="1" />
     </LinearLayout>
 
 
@@ -47,73 +47,74 @@
         android:id="@+id/seekBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/musicControls"/>
+        android:layout_above="@+id/musicControls" />
 
-             <!--<Not currently sure if a LinearLayout is necessary in case it is the code with the LinearLayout as the SeekBars parent is below -->
-             <!--< <LinearLayout
-                      android:id="@+id/seekBarLayout"
+    <!--<Not currently sure if a LinearLayout is necessary in case it is the code with the LinearLayout as the SeekBars parent is below -->
+    <!--< <LinearLayout
+             android:id="@+id/seekBarLayout"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_alignTop="@+id/musicControls"
+             android:orientation="vertical">
+                 <SeekBar
+                      android:id="@+id/seekBar"
                       android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:layout_alignTop="@+id/musicControls"
-                      android:orientation="vertical">
-                          <SeekBar
-                               android:id="@+id/seekBar"
-                               android:layout_width="match_parent"
-                               android:layout_height="wrap_content" />
-                   </LinearLayout> -->
+                      android:layout_height="wrap_content" />
+          </LinearLayout> -->
 
     <LinearLayout
         android:id="@+id/musicControls"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#80FFFFFF"
         android:layout_alignParentBottom="true"
+        android:background="#80FFFFFF"
         android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/previousButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="26dp"
+            android:padding="30dp"
             android:src="@drawable/previous_track" />
 
         <ImageView
             android:id="@+id/rewindButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="26dp"
+            android:padding="30dp"
             android:src="@drawable/rewind_button" />
 
         <ImageView
             android:id="@+id/pauseButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="26dp"
+            android:padding="30dp"
             android:src="@drawable/pause_button" />
 
         <!--<Need a method to make the Play button replace the Pause button after its pressed for Media player to continue where it stopped-->
-          <!--<<ImageView
-                  android:id="@+id/playButton"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:padding="23dp"
-                  android:src="@drawable/play_button" />-->
+        <ImageView
+            android:id="@+id/playButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="28dp"
+            android:src="@drawable/play_button"
+            android:visibility="gone" />
 
-     <ImageView
-         android:id="@+id/forwardButton"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:padding="26dp"
-         android:src="@drawable/fast_forward_button" />
+        <ImageView
+            android:id="@+id/forwardButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="27dp"
+            android:src="@drawable/fast_forward_button" />
 
-     <ImageView
-         android:id="@+id/nextButton"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:padding="26dp"
-         android:src="@drawable/next_button" />
+        <ImageView
+            android:id="@+id/nextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="27dp"
+            android:src="@drawable/next_button" />
 
- </LinearLayout>
+    </LinearLayout>
 </RelativeLayout>
 
 

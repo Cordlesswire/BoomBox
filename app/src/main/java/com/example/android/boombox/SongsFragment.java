@@ -15,6 +15,7 @@ import android.os.Handler;
 import java.util.ArrayList;
 
 import android.widget.ImageView;
+//import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import java.util.concurrent.TimeUnit;
@@ -137,6 +138,20 @@ public class SongsFragment extends Fragment {
 
             }
         });
+
+
+        pauseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mMediaPlayer.pause();
+                pauseButton.setEnabled(false);
+                pauseButton.setVisibility(View.GONE);
+            }
+        });
+
+
+
+
 
         return rootView;
     }
