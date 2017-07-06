@@ -1,4 +1,4 @@
-package com.example.android.miwok;
+package com.example.android.boombox;
 
 
 import android.content.Context;
@@ -10,10 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -24,9 +22,10 @@ public class PlaylistsFragment extends Fragment {
 
 
     private MediaPlayer mMediaPlayer;
+    private ImageView hidePlayIcon;
     private MediaPlayer.OnCompletionListener mCompletionListener = new MediaPlayer.OnCompletionListener() {
         @Override
-        public void onCompletion(MediaPlayer mp) {
+       public void onCompletion(MediaPlayer mp) {
             releaseMediaPlayer();
         }
     };
@@ -59,6 +58,9 @@ public class PlaylistsFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.words_list,container,false);
 
+//        hidePlayIcon = (ImageView) rootView.findViewById(R.id.imagePlay);
+//        hidePlayIcon.setVisibility(View.INVISIBLE);
+
         mAudioManager = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
 
 
@@ -81,8 +83,6 @@ public class PlaylistsFragment extends Fragment {
         WordAdapter itemsAdapter = new WordAdapter(getActivity(), words, R.color.category_colors);
         ListView listView = (ListView) rootView.findViewById(R.id.list);
 
-        //ImageView hidePlayIcon = (ImageView) rootView.findViewById(R.id.imagePlay);
-        //hidePlayIcon.setVisibility(View.GONE);
 
         listView.setAdapter(itemsAdapter);
 
@@ -110,8 +110,8 @@ public class PlaylistsFragment extends Fragment {
 }
 
     @Override
-    public void onStop() {
-        super.onStop();
+   public void onStop() {
+       super.onStop();
         releaseMediaPlayer();
     }
 
@@ -126,7 +126,7 @@ public class PlaylistsFragment extends Fragment {
             // setting the media player to null is an easy way to tell that the media player
             // is not configured to play an audio file at the moment.
             mMediaPlayer = null;
-            mAudioManager.abandonAudioFocus(afListener);
+           mAudioManager.abandonAudioFocus(afListener);
         }
     }
 

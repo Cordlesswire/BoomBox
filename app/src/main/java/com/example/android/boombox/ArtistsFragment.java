@@ -1,4 +1,4 @@
-package com.example.android.miwok;
+package com.example.android.boombox;
 
 
 import android.content.Context;
@@ -11,22 +11,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AlbumsFragment extends Fragment {
-
-    private MediaPlayer mMediaPlayer;
+public class ArtistsFragment extends Fragment {
+    private MediaPlayer mMediaPlayer ;
     private MediaPlayer.OnCompletionListener mCompletionListener = new MediaPlayer.OnCompletionListener(){
         @Override
         public void onCompletion(MediaPlayer mp) {
             releaseMediaPlayer();
         }
     };
+
     private AudioManager mAudioManager;
 
     AudioManager.OnAudioFocusChangeListener afListener = new AudioManager.OnAudioFocusChangeListener(){
@@ -41,10 +40,11 @@ public class AlbumsFragment extends Fragment {
                 mMediaPlayer.pause();
                 mMediaPlayer.seekTo(0);
             }
+
         }
     };
 
-    public AlbumsFragment() {
+    public ArtistsFragment() {
         // Required empty public constructor
     }
 
@@ -54,37 +54,32 @@ public class AlbumsFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.words_list,container,false);
-        mAudioManager = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
 
+        mAudioManager = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
 
         final ArrayList<Word> words = new ArrayList<>();
 
-        //Change to Gridview
-        //You don't need raw files to be played here just a method that will display whichever album that the user will click
-
-        words.add(new Word("Childish Gambino","Because the Internet",R.drawable.childish_gambino_because,R.raw.childish_gambino_3005));
-        words.add(new Word("Childish Gambino","Freestyles",R.drawable.childish_gambino,R.raw.childish_gambino_3005));
-        words.add(new Word("Gas Lab","Fusion",R.drawable.gas_lab,R.raw.childish_gambino_3005));
-        words.add(new Word("J.Cole","Friday Night Lights",R.drawable.jcole_friday,R.raw.childish_gambino_3005));
-        words.add(new Word("J.Cole","The Warm Up",R.drawable.j_cole,R.raw.childish_gambino_3005));
-        words.add(new Word("JABS","Fade to Paradise",R.drawable.jabs_willow,R.raw.childish_gambino_3005));
-        words.add(new Word("Téo","Divine Intoxication",R.drawable.teo,R.raw.childish_gambino_3005));
-        words.add(new Word("The Muffinz","Have You Heard?",R.drawable.the_muffinz,R.raw.childish_gambino_3005));
-        words.add(new Word("Tupac Shakur","Picture my Pain",R.drawable.tupac,R.raw.childish_gambino_3005));
-        words.add(new Word("Willow","Mellifluous",R.drawable.willow,R.raw.childish_gambino_3005));
+        //Don't need to play raw files but redirect the user to the specified artists songs list when the user clicks on whichever artist
+        //Can leave it as a ListView information will be easier for the user to read this way
+        words.add(new Word("Childish Gambino","number of songs in memory",R.drawable.childish_gambino,R.raw.childish_gambino_3005));
+        words.add(new Word("Gas Lab","number of songs in memory",R.drawable.gas_lab,R.raw.childish_gambino_3005));
+        words.add(new Word("J.Cole","number of songs in memory",R.drawable.j_cole,R.raw.childish_gambino_3005));
+        words.add(new Word("JABS","number of songs in memory",R.drawable.jabs_willow,R.raw.childish_gambino_3005));
+        words.add(new Word("Téo","number of songs in memory",R.drawable.teo,R.raw.childish_gambino_3005));
+        words.add(new Word("The Muffinz","number of songs in memory",R.drawable.the_muffinz,R.raw.childish_gambino_3005));
+        words.add(new Word("Tupac Shakur","number of songs in memory",R.drawable.tupac,R.raw.childish_gambino_3005));
+        words.add(new Word("Willow","number of songs in memory",R.drawable.willow,R.raw.childish_gambino_3005));
 
 
         WordAdapter itemsAdapter = new WordAdapter(getActivity(),words,R.color.category_colors);
         ListView listView = (ListView) rootView.findViewById(R.id.list);
 
         listView.setAdapter(itemsAdapter);
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 Word word = words.get(position);
-
                 releaseMediaPlayer();
                 int requestResult = mAudioManager.requestAudioFocus(afListener,
                         AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
@@ -93,11 +88,9 @@ public class AlbumsFragment extends Fragment {
                     mMediaPlayer = MediaPlayer.create(getActivity(),word.getSoundResourceId());
                     mMediaPlayer.start();
                     mMediaPlayer.setOnCompletionListener(mCompletionListener);
-
                 }
             }
         });
-
 
         return rootView;
     }

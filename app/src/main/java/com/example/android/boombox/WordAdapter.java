@@ -1,9 +1,7 @@
-package com.example.android.miwok;
+package com.example.android.boombox;
 
 import android.app.Activity;
-import android.media.Image;
 import android.media.MediaPlayer;
-import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
