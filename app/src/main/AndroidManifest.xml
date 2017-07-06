@@ -22,7 +22,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.android.boombox.MainActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -30,7 +30,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".SongControl" />
-        <activity android:name="com.example.android.boombox.SongControl"></activity>
+        <activity android:name=".SongControl" />
     </application>
 
 </manifest>

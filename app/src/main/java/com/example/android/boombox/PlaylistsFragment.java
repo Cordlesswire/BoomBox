@@ -58,8 +58,8 @@ public class PlaylistsFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.words_list,container,false);
 
-//        hidePlayIcon = (ImageView) rootView.findViewById(R.id.imagePlay);
-//         hidePlayIcon.setVisibility(View.INVISIBLE);
+        hidePlayIcon = (ImageView) rootView.findViewById(R.id.imagePlay);
+         hidePlayIcon.setVisibility(View.INVISIBLE);
 
         mAudioManager = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
 
