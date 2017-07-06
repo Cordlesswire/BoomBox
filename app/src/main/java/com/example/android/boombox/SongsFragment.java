@@ -15,7 +15,6 @@ import android.os.Handler;
 import java.util.ArrayList;
 
 import android.widget.ImageView;
-//import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import java.util.concurrent.TimeUnit;
@@ -29,7 +28,7 @@ public class SongsFragment extends Fragment {
 
     private Handler songHnadler = new Handler();
 
-    private ImageView previousButton, rewindButton, pauseButton, forwardButton, nextButton;
+    private ImageView previousButton, rewindButton, pauseButton,playButton, forwardButton, nextButton;
     private SeekBar seekBar;
     private TextView startTimeView, songTitle, endTimeView;
 
@@ -80,7 +79,7 @@ public class SongsFragment extends Fragment {
         previousButton = (ImageView) rootView.findViewById(R.id.previousButton);
         rewindButton = (ImageView) rootView.findViewById(R.id.rewindButton);
         pauseButton = (ImageView) rootView.findViewById(R.id.pauseButton);
-        //playButton = (ImageView) rootView.findViewById(R.id.playButton);
+        playButton = (ImageView) rootView.findViewById(R.id.playButton);
         forwardButton = (ImageView) rootView.findViewById(R.id.forwardButton);
         nextButton = (ImageView) rootView.findViewById(R.id.nextButton);
 
@@ -146,6 +145,8 @@ public class SongsFragment extends Fragment {
                 mMediaPlayer.pause();
                 pauseButton.setEnabled(false);
                 pauseButton.setVisibility(View.GONE);
+
+                playButton.setVisibility(View.VISIBLE);
             }
         });
 

@@ -74,21 +74,21 @@
             android:id="@+id/previousButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="30dp"
+            android:padding="27dp"
             android:src="@drawable/previous_track" />
 
         <ImageView
             android:id="@+id/rewindButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="30dp"
+            android:padding="27dp"
             android:src="@drawable/rewind_button" />
 
         <ImageView
             android:id="@+id/pauseButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="30dp"
+            android:padding="29dp"
             android:src="@drawable/pause_button" />
 
         <!--<Need a method to make the Play button replace the Pause button after its pressed for Media player to continue where it stopped-->
@@ -96,7 +96,7 @@
             android:id="@+id/playButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="28dp"
+            android:padding="27dp"
             android:src="@drawable/play_button"
             android:visibility="gone" />
 
