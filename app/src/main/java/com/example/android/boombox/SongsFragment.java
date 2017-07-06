@@ -12,12 +12,16 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.os.Handler;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
 import java.util.concurrent.TimeUnit;
+
 import org.w3c.dom.Text;
 
 
@@ -28,7 +32,7 @@ public class SongsFragment extends Fragment {
 
     private Handler songHnadler = new Handler();
 
-    private ImageView previousButton, rewindButton, pauseButton,playButton, forwardButton, nextButton;
+    private ImageView previousButton, rewindButton, pauseButton, playButton, forwardButton, nextButton;
     private SeekBar seekBar;
     private TextView startTimeView, songTitle, endTimeView;
 
@@ -37,6 +41,7 @@ public class SongsFragment extends Fragment {
 
     private int forwardTime = 5000;
     private int backwardTime = 5000;
+    private int currentIndex = 0;
 
 
     private MediaPlayer mMediaPlayer;
@@ -46,7 +51,6 @@ public class SongsFragment extends Fragment {
             releaseMediaPlayer();
         }
     };
-
 
 
     private AudioManager mAudioManager;
@@ -70,6 +74,7 @@ public class SongsFragment extends Fragment {
         // Required empty public constructor
     }
 
+    public static int oneTimeOnly = 0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -93,9 +98,6 @@ public class SongsFragment extends Fragment {
         mAudioManager = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
 
 
-
-
-
         final ArrayList<Word> songs = new ArrayList<>();
 
         songs.add(new Word("Childish Gambino", "3005", R.drawable.childish_gambino_because, R.raw.childish_gambino_3005));
@@ -117,7 +119,6 @@ public class SongsFragment extends Fragment {
         ListView listView = (ListView) rootView.findViewById(R.id.list);
 
 
-
         listView.setAdapter(itemsAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -133,31 +134,61 @@ public class SongsFragment extends Fragment {
                     mMediaPlayer.start();
                     mMediaPlayer.setOnCompletionListener(mCompletionListener);
 
+
+                    finalTime = mMediaPlayer.getDuration();
+                    startTime = mMediaPlayer.getCurrentPosition();
+                    if (oneTimeOnly == 0) {
+                        seekBar.setMax((int) finalTime);
+                        oneTimeOnly = 1;
+                    }
+
+                    endTimeView.setText(String.format("%d min, %d sec",
+                            TimeUnit.MILLISECONDS.toMinutes((long) finalTime),
+                            TimeUnit.MILLISECONDS.toSeconds((long) finalTime) -
+                                    TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes((long)
+                                            finalTime)))
+                    );
+
+                    startTimeView.setText(String.format("%d min, %d sec",
+                            TimeUnit.MILLISECONDS.toMinutes((long) startTime),
+                            TimeUnit.MILLISECONDS.toSeconds((long) startTime) -
+                                    TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes((long)
+                                            startTime)))
+                    );
+
+
+                    seekBar.setProgress((int) startTime);
+                    songHnadler.postDelayed(UpdateSongTime, 100);
+
+
                 }
 
             }
         });
+
 
         //Method to Pause song
         pauseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(mMediaPlayer.isPlaying()){
-                mMediaPlayer.pause();
-                //pauseButton.setEnabled(false);
-                //"Pause" is not in display so the user can see the "Play" Button to Resume music
-                pauseButton.setVisibility(View.GONE);
-                //Displays "Play" button and replaces the "Pause" button on the controls layout
-                playButton.setVisibility(View.VISIBLE);
+                if (mMediaPlayer.isPlaying()) {
+                    mMediaPlayer.pause();
+                    //pauseButton.setEnabled(false);
+                    //"Pause" is not in display so the user can see the "Play" Button to Resume music
+                    pauseButton.setVisibility(View.GONE);
+                    //Displays "Play" button and replaces the "Pause" button on the controls layout
+                    playButton.setVisibility(View.VISIBLE);
 
-                previousButton.setEnabled(false);
-                forwardButton.setEnabled(false);
-                nextButton.setEnabled(false);
-                rewindButton.setEnabled(false);
+                    previousButton.setEnabled(false);
+                    forwardButton.setEnabled(false);
+                    nextButton.setEnabled(false);
+                    rewindButton.setEnabled(false);
                 }
             }
         });
 
+
+        //Method to Play song if it was Paused
         playButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -172,6 +203,52 @@ public class SongsFragment extends Fragment {
         });
 
 
+        //Method to fast forward the track
+        forwardButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int temp = (int) startTime;
+                if ((temp + forwardTime) <= finalTime) {
+                    startTime = startTime + forwardTime;
+                    mMediaPlayer.seekTo((int) startTime);
+                }
+            }
+        });
+
+
+        //Method to rewind the track
+        rewindButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int temp = (int) startTime;
+                if ((temp - backwardTime) > 0) {
+                    startTime = startTime - backwardTime;
+                    mMediaPlayer.seekTo((int) startTime);
+                }
+            }
+        });
+
+
+        //Method to Play Next Song
+        nextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mMediaPlayer.isPlaying()) {
+
+                }
+            }
+        });
+
+
+        //Method to Play Previous Song
+        previousButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mMediaPlayer.isPlaying()) {
+
+                }
+            }
+        });
 
 
         return rootView;
@@ -198,6 +275,18 @@ public class SongsFragment extends Fragment {
         }
     }
 
-
+    private Runnable UpdateSongTime = new Runnable() {
+        public void run() {
+            startTime = mMediaPlayer.getCurrentPosition();
+            startTimeView.setText(String.format("%d min, %d sec",
+                    TimeUnit.MILLISECONDS.toMinutes((long) startTime),
+                    TimeUnit.MILLISECONDS.toSeconds((long) startTime) -
+                            TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.
+                                    toMinutes((long) startTime)))
+            );
+            seekBar.setProgress((int) startTime);
+            songHnadler.postDelayed(this, 100);
+        }
+    };
 
 }
