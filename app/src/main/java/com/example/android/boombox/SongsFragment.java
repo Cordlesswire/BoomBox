@@ -138,15 +138,21 @@ public class SongsFragment extends Fragment {
             }
         });
 
-
+        //Method to Pause song
         pauseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mMediaPlayer.pause();
                 //pauseButton.setEnabled(false);
+                //"Pause" is not in display so the user can see the "Play" Button to Resume music
                 pauseButton.setVisibility(View.GONE);
-
+                //Displays "Play" button and replaces the "Pause" button on the controls layout
                 playButton.setVisibility(View.VISIBLE);
+
+                previousButton.setEnabled(false);
+                forwardButton.setEnabled(false);
+                nextButton.setEnabled(false);
+                rewindButton.setEnabled(false);
             }
         });
 
@@ -155,8 +161,9 @@ public class SongsFragment extends Fragment {
             public void onClick(View v) {
                 mMediaPlayer.start();
                 //playButton.setEnabled(false);
+                //"Play" is not in display so the user can see the "Pause" Button to Pause the music if needed
                 playButton.setVisibility(View.GONE);
-
+                //Displays "Pause" button and replaces the "Play" button on the controls layout
                 pauseButton.setVisibility(View.VISIBLE);
             }
         });
