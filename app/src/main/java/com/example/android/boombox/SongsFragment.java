@@ -143,15 +143,23 @@ public class SongsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 mMediaPlayer.pause();
-                pauseButton.setEnabled(false);
+                //pauseButton.setEnabled(false);
                 pauseButton.setVisibility(View.GONE);
 
                 playButton.setVisibility(View.VISIBLE);
             }
         });
 
+        playButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mMediaPlayer.start();
+                //playButton.setEnabled(false);
+                playButton.setVisibility(View.GONE);
 
-
+                pauseButton.setVisibility(View.VISIBLE);
+            }
+        });
 
 
         return rootView;
