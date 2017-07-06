@@ -45,44 +45,43 @@
             android:id="@+id/previousButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="25dp"
+            android:padding="23dp"
             android:src="@drawable/previous_track" />
 
         <ImageView
             android:id="@+id/rewindButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="25dp"
+            android:padding="23dp"
             android:src="@drawable/rewind_button" />
 
         <ImageView
             android:id="@+id/pauseButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="25dp"
+            android:padding="23dp"
             android:src="@drawable/pause_button" />
 
         <!--<Need a method to make the Play button replace the Pause button after its pressed for Media player to continue where it stopped-->
-        <!--< <ImageView
+         <ImageView
                 android:id="@+id/playButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
-                android:src="@drawable/play_button" /> -->
+                android:padding="23dp"
+                android:src="@drawable/play_button" />
 
        <ImageView
            android:id="@+id/forwardButton"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
-           android:padding="25dp"
+           android:padding="23dp"
            android:src="@drawable/fast_forward_button" />
 
        <ImageView
            android:id="@+id/nextButton"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
-           android:padding="25dp"
-           android:layout_marginLeft="10dp"
+           android:padding="23dp"
            android:src="@drawable/next_button" />
 
    </LinearLayout>

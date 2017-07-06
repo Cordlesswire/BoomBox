@@ -11,13 +11,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-
+import android.os.Handler;
 import java.util.ArrayList;
+
+import android.widget.ImageView;
+import android.widget.SeekBar;
+import android.widget.TextView;
+import android.widget.Toast;
+import java.util.concurrent.TimeUnit;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class SongsFragment extends Fragment {
+
+    private ImageView previousButton, rewindButton, pauseButton, playButton, forwardButton, nextButton;
+
     private MediaPlayer mMediaPlayer;
     private MediaPlayer.OnCompletionListener mCompletionListener = new MediaPlayer.OnCompletionListener() {
         @Override
@@ -54,6 +63,14 @@ public class SongsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.words_list, container, false);
+
+        previousButton = (ImageView) rootView.findViewById(R.id.previousButton);
+        rewindButton = (ImageView) rootView.findViewById(R.id.rewindButton);
+        pauseButton = (ImageView) rootView.findViewById(R.id.pauseButton);
+        playButton = (ImageView) rootView.findViewById(R.id.playButton);
+        forwardButton = (ImageView) rootView.findViewById(R.id.forwardButton);
+        nextButton = (ImageView) rootView.findViewById(R.id.nextButton);
+
 
         mAudioManager = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
 
@@ -106,8 +123,6 @@ public class SongsFragment extends Fragment {
     public void onStop() {
         super.onStop();
         releaseMediaPlayer();
-        //iconToDisplay.setVisibility(View.GONE);
-
     }
 
     private void releaseMediaPlayer() {
@@ -124,5 +139,9 @@ public class SongsFragment extends Fragment {
             mAudioManager.abandonAudioFocus(afListener);
         }
     }
+
+
+    //methods for music control buttons
+    //first make the buttons clickable than manipulate the sound
 
 }
