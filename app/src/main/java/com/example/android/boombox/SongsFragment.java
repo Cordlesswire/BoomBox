@@ -17,15 +17,27 @@ import java.util.ArrayList;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import android.widget.Toast;
 import java.util.concurrent.TimeUnit;
+import org.w3c.dom.Text;
+
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class SongsFragment extends Fragment {
 
+    private Handler songHnadler = new Handler();
+
     private ImageView previousButton, rewindButton, pauseButton, playButton, forwardButton, nextButton;
+    private SeekBar seekBar;
+    private TextView startTimeView, songTitle, endTimeView;
+
+    private double startTime = 0;
+    private double finalTime = 0;
+
+    private int forwardTime = 5000;
+    private int backwardTime = 5000;
+
 
     private MediaPlayer mMediaPlayer;
     private MediaPlayer.OnCompletionListener mCompletionListener = new MediaPlayer.OnCompletionListener() {
@@ -70,6 +82,12 @@ public class SongsFragment extends Fragment {
         playButton = (ImageView) rootView.findViewById(R.id.playButton);
         forwardButton = (ImageView) rootView.findViewById(R.id.forwardButton);
         nextButton = (ImageView) rootView.findViewById(R.id.nextButton);
+
+        seekBar = (SeekBar) rootView.findViewById(R.id.seekBar);
+
+        startTimeView = (TextView) rootView.findViewById(R.id.startTime);
+        songTitle = (TextView) rootView.findViewById(R.id.songTitle);
+        endTimeView = (TextView) rootView.findViewById(R.id.endTime);
 
 
         mAudioManager = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
