@@ -103,6 +103,11 @@ public class PlaylistsFragment extends Fragment {
         songs.add(new Word("A subtle mixture of different genres", "Contemporary", R.drawable.teo, R.raw.teo_how_low));
         songs.add(new Word("Rhythm and Blues", "Soulful", R.drawable.the_muffinz, R.raw.teo_enlightened_now));
         songs.add(new Word("Music that supplies knowledge and self awareness", "Conscious Hip Hop", R.drawable.j_cole, R.raw.jcole_losing_my_balance));
+        songs.add(new Word("Soulful Urban Music", "AfroSoul", R.drawable.gas_lab, R.raw.gas_lab_chemistry));
+        songs.add(new Word("A mix of Jazz fused with Hip Hop", "JazzHop", R.drawable.gas_lab, R.raw.gas_lab_jazz_hop));
+        songs.add(new Word("A subtle mixture of different genres", "Contemporary", R.drawable.teo, R.raw.teo_how_low));
+        songs.add(new Word("Rhythm and Blues", "Soulful", R.drawable.the_muffinz, R.raw.teo_enlightened_now));
+        songs.add(new Word("Music that supplies knowledge and self awareness", "Conscious Hip Hop", R.drawable.j_cole, R.raw.jcole_losing_my_balance));
 
 
         WordAdapter itemsAdapter = new WordAdapter(getActivity(), songs, R.color.category_colors);

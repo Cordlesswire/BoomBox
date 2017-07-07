@@ -269,6 +269,10 @@ public class SongsFragment extends Fragment {
                 //Displays "Pause" button and replaces the "Play" button on the controls layout
                 pauseButton.setVisibility(View.VISIBLE);
 
+                previousButton.setEnabled(true);
+                forwardButton.setEnabled(true);
+                nextButton.setEnabled(true);
+                rewindButton.setEnabled(true);
             }
         });
 

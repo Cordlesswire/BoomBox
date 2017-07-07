@@ -75,14 +75,14 @@
         android:id="@+id/previousButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="27dp"
+        android:padding="29dp"
         android:src="@drawable/previous_track" />
 
     <ImageView
         android:id="@+id/rewindButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="27dp"
+        android:padding="29dp"
         android:src="@drawable/rewind_button" />
 
     <ImageView
@@ -97,7 +97,7 @@
             android:id="@+id/playButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="27dp"
+            android:padding="29dp"
             android:src="@drawable/play_button"
             android:visibility="gone" />
 
@@ -105,14 +105,14 @@
             android:id="@+id/forwardButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="27dp"
+            android:padding="29dp"
             android:src="@drawable/fast_forward_button" />
 
         <ImageView
             android:id="@+id/nextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="27dp"
+            android:padding="29dp"
             android:src="@drawable/next_button" />
 
     </LinearLayout>
