@@ -195,6 +195,7 @@ public class ArtistsFragment extends Fragment {
         });
 
 
+
         //Method to rewind the track
         rewindButton.setOnClickListener(new View.OnClickListener() {
             @Override
