@@ -37,7 +37,7 @@ public class PlaylistsFragment extends Fragment {
 
     //Keeps track of Current Song
     private int currentIndex = 0;
-
+    private String artistName;
 
     private MediaPlayer mMediaPlayer;
     private ImageView hidePlayIcon;
@@ -137,7 +137,9 @@ public class PlaylistsFragment extends Fragment {
                         AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
                 if (requestResult == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
                     mMediaPlayer = MediaPlayer.create(getActivity(), word.getSoundResourceId());
+                    artistName= word.getTitle();
                     mMediaPlayer.start();
+                    //songTitle.setText(artistName);
 
                     //Enable buttons so that they are clickable
                     //previousButton.setEnabled(true); Still need to fix Previous track method
