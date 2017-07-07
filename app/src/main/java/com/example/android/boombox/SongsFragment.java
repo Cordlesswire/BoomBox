@@ -262,6 +262,7 @@ public class SongsFragment extends Fragment {
                     pauseButton.setVisibility(View.GONE);
                     //Displays "Play" button and replaces the "Pause" button on the controls layout
                     playButton.setVisibility(View.VISIBLE);
+                    playButton.setEnabled(true);
 
                     previousButton.setEnabled(false);
                     forwardButton.setEnabled(false);

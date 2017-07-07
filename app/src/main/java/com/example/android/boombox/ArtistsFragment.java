@@ -243,6 +243,7 @@ public class ArtistsFragment extends Fragment {
                     //Displays "Play" button and replaces the "Pause" button on the controls layout
                     playButton.setVisibility(View.VISIBLE);
 
+                    playButton.setEnabled(true);
                     previousButton.setEnabled(false);
                     forwardButton.setEnabled(false);
                     nextButton.setEnabled(false);
@@ -266,6 +267,7 @@ public class ArtistsFragment extends Fragment {
                 forwardButton.setEnabled(true);
                 nextButton.setEnabled(true);
                 rewindButton.setEnabled(true);
+                pauseButton.setEnabled(true);
             }
         });
 
