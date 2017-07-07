@@ -41,6 +41,8 @@ public class SongsFragment extends Fragment {
 
     private int forwardTime = 5000;
     private int backwardTime = 5000;
+
+    //Keeps track of Current Song
     private int currentIndex = 0;
 
 
@@ -167,42 +169,6 @@ public class SongsFragment extends Fragment {
         });
 
 
-        //Method to Pause song
-        pauseButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mMediaPlayer.isPlaying()) {
-                    mMediaPlayer.pause();
-                    //pauseButton.setEnabled(false);
-                    //"Pause" is not in display so the user can see the "Play" Button to Resume music
-                    pauseButton.setVisibility(View.GONE);
-                    //Displays "Play" button and replaces the "Pause" button on the controls layout
-                    playButton.setVisibility(View.VISIBLE);
-
-                    previousButton.setEnabled(false);
-                    forwardButton.setEnabled(false);
-                    nextButton.setEnabled(false);
-                    rewindButton.setEnabled(false);
-                }
-            }
-        });
-
-
-        //Method to Play song if it was Paused
-        playButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mMediaPlayer.start();
-                //playButton.setEnabled(false);
-                //"Play" is not in display so the user can see the "Pause" Button to Pause the music if needed
-                playButton.setVisibility(View.GONE);
-                //Displays "Pause" button and replaces the "Play" button on the controls layout
-                pauseButton.setVisibility(View.VISIBLE);
-
-            }
-        });
-
-
         //Method to fast forward the track
         forwardButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -227,6 +193,43 @@ public class SongsFragment extends Fragment {
                 }
             }
         });
+
+
+
+
+        //Method to Pause song
+        pauseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mMediaPlayer.isPlaying()) {
+                    mMediaPlayer.pause();
+                    //"Pause" is not in display so the user can see the "Play" Button to Resume music
+                    pauseButton.setVisibility(View.GONE);
+                    //Displays "Play" button and replaces the "Pause" button on the controls layout
+                    playButton.setVisibility(View.VISIBLE);
+
+                    previousButton.setEnabled(false);
+                    forwardButton.setEnabled(false);
+                    nextButton.setEnabled(false);
+                    rewindButton.setEnabled(false);
+                }
+            }
+        });
+
+
+        //Method to Play song if it was Paused
+        playButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mMediaPlayer.start();
+                //"Play" is not in display so the user can see the "Pause" Button to Pause the music if needed
+                playButton.setVisibility(View.GONE);
+                //Displays "Pause" button and replaces the "Play" button on the controls layout
+                pauseButton.setVisibility(View.VISIBLE);
+
+            }
+        });
+
 
 
         //Method to Play Next Song

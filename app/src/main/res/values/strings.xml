@@ -28,4 +28,11 @@
     <!-- Category name for the songs -->
     <string name="category_songs">Songs</string>
 
+
+    <!-- Card View Titles -->
+    <string name="action_settings">Settings</string>
+    <string name="action_add_playlist">Add to Playlist</string>
+    <string name="action_play_next">Play Next</string>
+    <string name="backdrop_title">LOVE MUSICS</string>
+    <string name="backdrop_subtitle">This season top 20 music</string>
 </resources>
