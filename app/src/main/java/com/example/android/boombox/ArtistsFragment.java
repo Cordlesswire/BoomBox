@@ -267,7 +267,6 @@ public class ArtistsFragment extends Fragment {
                 forwardButton.setEnabled(true);
                 nextButton.setEnabled(true);
                 rewindButton.setEnabled(true);
-                pauseButton.setEnabled(true);
             }
         });
 
