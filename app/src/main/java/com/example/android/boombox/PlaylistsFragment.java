@@ -84,6 +84,14 @@ public class PlaylistsFragment extends Fragment {
         forwardButton = (ImageView) rootView.findViewById(R.id.forwardButton);
         nextButton = (ImageView) rootView.findViewById(R.id.nextButton);
 
+        //Disable buttons because we can't skip a song if it has not started playing yet
+        previousButton.setEnabled(false);
+        forwardButton.setEnabled(false);
+        nextButton.setEnabled(false);
+        rewindButton.setEnabled(false);
+        pauseButton.setEnabled(false);
+        playButton.setEnabled(false);
+
         seekBar = (SeekBar) rootView.findViewById(R.id.seekBar);
         seekBar.setClickable(false);
 
@@ -131,6 +139,7 @@ public class PlaylistsFragment extends Fragment {
                     mMediaPlayer = MediaPlayer.create(getActivity(), word.getSoundResourceId());
                     mMediaPlayer.start();
 
+                    //Enable buttons so that they are clickable
                     previousButton.setEnabled(true);
                     forwardButton.setEnabled(true);
                     nextButton.setEnabled(true);

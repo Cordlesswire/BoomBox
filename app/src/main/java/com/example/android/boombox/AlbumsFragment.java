@@ -81,6 +81,7 @@ public class AlbumsFragment extends Fragment {
         forwardButton = (ImageView) rootView.findViewById(R.id.forwardButton);
         nextButton = (ImageView) rootView.findViewById(R.id.nextButton);
 
+        //Disable buttons because we can't skip a song if it has not started playing yet
         previousButton.setEnabled(false);
         forwardButton.setEnabled(false);
         nextButton.setEnabled(false);
@@ -136,6 +137,7 @@ public class AlbumsFragment extends Fragment {
                     mMediaPlayer = MediaPlayer.create(getActivity(), word.getSoundResourceId());
                     mMediaPlayer.start();
 
+                    //Enable buttons so that they are clickable
                     previousButton.setEnabled(true);
                     forwardButton.setEnabled(true);
                     nextButton.setEnabled(true);
