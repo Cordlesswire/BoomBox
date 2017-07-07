@@ -35,7 +35,7 @@ public class SongsFragment extends Fragment {
 
     private ImageView previousButton, rewindButton, pauseButton, playButton, forwardButton, nextButton;
     private SeekBar seekBar;
-    //private TextView startTimeView, songTitle, endTimeView;
+    private TextView songTitle;
 
     private double startTime = 0;
     private double finalTime = 0;
@@ -45,6 +45,7 @@ public class SongsFragment extends Fragment {
 
     //Keeps track of Current Song
     private int currentIndex;
+    private  String artistName;
 
 
     private MediaPlayer mMediaPlayer;
@@ -104,10 +105,7 @@ public class SongsFragment extends Fragment {
         seekBar.setClickable(false);
 
 
-        //startTimeView = (TextView) rootView.findViewById(R.id.startTime);
-        //songTitle = (TextView) rootView.findViewById(R.id.songTitle);
-       // endTimeView = (TextView) rootView.findViewById(R.id.endTime);
-
+        songTitle = (TextView) rootView.findViewById(R.id.songInformation);
 
         mAudioManager = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
 
@@ -148,7 +146,10 @@ public class SongsFragment extends Fragment {
                         AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
                 if (requestResult == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
                     mMediaPlayer = MediaPlayer.create(getActivity(), word.getSoundResourceId());
+                    artistName= word.getTitle();
                     mMediaPlayer.start();
+                    songTitle.setText(artistName);
+
 
                     //Enable buttons so that they are clickable
                     //previousButton.setEnabled(true); Still need to fix Previous track method
