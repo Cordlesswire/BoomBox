@@ -138,7 +138,7 @@ public class AlbumsFragment extends Fragment {
                     mMediaPlayer.start();
 
                     //Enable buttons so that they are clickable
-                    previousButton.setEnabled(true);
+                    //previousButton.setEnabled(true); Still need to fix Previous track method
                     forwardButton.setEnabled(true);
                     nextButton.setEnabled(true);
                     rewindButton.setEnabled(true);
