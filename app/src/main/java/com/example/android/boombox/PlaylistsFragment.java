@@ -101,13 +101,13 @@ public class PlaylistsFragment extends Fragment {
         songs.add(new Word("Contains no lyrics- Just beats()Instrumentals", "Instrumentals", R.drawable.gas_lab, R.raw.gas_lab_chemistry));
         songs.add(new Word("A mix of Jazz fused with Hip Hop", "JazzHop", R.drawable.gas_lab, R.raw.gas_lab_jazz_hop));
         songs.add(new Word("A subtle mixture of different genres", "Contemporary", R.drawable.teo, R.raw.teo_how_low));
-        songs.add(new Word("Rhythm and Blues", "Soulful", R.drawable.the_muffinz, R.raw.teo_enlightened_now));
+        songs.add(new Word("Rhythm and Blues", "Soulful", R.drawable.jabs_willow, R.raw.teo_enlightened_now));
         songs.add(new Word("Music that supplies knowledge and self awareness", "Conscious Hip Hop", R.drawable.j_cole, R.raw.jcole_losing_my_balance));
-        songs.add(new Word("Soulful Urban Music", "AfroSoul", R.drawable.gas_lab, R.raw.gas_lab_chemistry));
-        songs.add(new Word("A mix of Jazz fused with Hip Hop", "JazzHop", R.drawable.gas_lab, R.raw.gas_lab_jazz_hop));
-        songs.add(new Word("A subtle mixture of different genres", "Contemporary", R.drawable.teo, R.raw.teo_how_low));
-        songs.add(new Word("Rhythm and Blues", "Soulful", R.drawable.the_muffinz, R.raw.teo_enlightened_now));
-        songs.add(new Word("Music that supplies knowledge and self awareness", "Conscious Hip Hop", R.drawable.j_cole, R.raw.jcole_losing_my_balance));
+        songs.add(new Word("Soulful Urban Music", "AfroSoul", R.drawable.the_muffinz, R.raw.teo_selflessish));
+        songs.add(new Word("Relaxing Music", "Relaxation", R.drawable.willow, R.raw.willow_9));
+        songs.add(new Word("Rap with Feelings", "RnB/Hip-Hop", R.drawable.childish_gambino, R.raw.childish_gambino_3005));
+        songs.add(new Word("Poetic music", "Poetic", R.drawable.tyler_the_creator, R.raw.tyler_the_creator_she));
+        songs.add(new Word("Freestyles", "Freestyles", R.drawable.childish_gambino_because, R.raw.childish_gambino_freestyle));
 
 
         WordAdapter itemsAdapter = new WordAdapter(getActivity(), songs, R.color.category_colors);
