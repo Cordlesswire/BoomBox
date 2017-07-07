@@ -62,15 +62,15 @@ public class AlbumsFragment extends Fragment {
         //You don't need raw files to be played here just a method that will display whichever album that the user will click
 
         words.add(new Word("Childish Gambino","Because the Internet",R.drawable.childish_gambino_because,R.raw.childish_gambino_3005));
-        words.add(new Word("Childish Gambino","Freestyles",R.drawable.childish_gambino,R.raw.childish_gambino_3005));
-        words.add(new Word("Gas Lab","Fusion",R.drawable.gas_lab,R.raw.childish_gambino_3005));
-        words.add(new Word("J.Cole","Friday Night Lights",R.drawable.jcole_friday,R.raw.childish_gambino_3005));
-        words.add(new Word("J.Cole","The Warm Up",R.drawable.j_cole,R.raw.childish_gambino_3005));
-        words.add(new Word("JABS","Fade to Paradise",R.drawable.jabs_willow,R.raw.childish_gambino_3005));
-        words.add(new Word("Téo","Divine Intoxication",R.drawable.teo,R.raw.childish_gambino_3005));
-        words.add(new Word("The Muffinz","Have You Heard?",R.drawable.the_muffinz,R.raw.childish_gambino_3005));
+        words.add(new Word("Childish Gambino","Freestyles",R.drawable.childish_gambino,R.raw.childish_gambino_freestyle));
+        words.add(new Word("Gas Lab","Fusion",R.drawable.gas_lab,R.raw.gas_lab_chemistry));
+        words.add(new Word("J.Cole","Friday Night Lights",R.drawable.jcole_friday,R.raw.jcole_losing_my_balance));
+        words.add(new Word("J.Cole","The Warm Up",R.drawable.j_cole,R.raw.jcole_losing_my_balance));
+        words.add(new Word("JABS","Fade to Paradise",R.drawable.jabs_willow,R.raw.jabs_payiva));
+        words.add(new Word("Téo","Divine Intoxication",R.drawable.teo,R.raw.teo_how_low));
+        words.add(new Word("The Muffinz","Have You Heard?",R.drawable.the_muffinz,R.raw.teo_enlightened_now));
         words.add(new Word("Tupac Shakur","Picture my Pain",R.drawable.tupac,R.raw.childish_gambino_3005));
-        words.add(new Word("Willow","Mellifluous",R.drawable.willow,R.raw.childish_gambino_3005));
+        words.add(new Word("Willow","Mellifluous",R.drawable.willow,R.raw.willow_female_energy));
 
 
         WordAdapter itemsAdapter = new WordAdapter(getActivity(),words,R.color.category_colors);
