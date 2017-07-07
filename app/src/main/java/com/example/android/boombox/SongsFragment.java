@@ -160,6 +160,7 @@ public class SongsFragment extends Fragment {
 
 
                     seekBar.setProgress((int) startTime);
+                    seekBar.setMax(mMediaPlayer.getDuration());
                     songHnadler.postDelayed(UpdateSongTime, 100);
 
 
@@ -190,6 +191,38 @@ public class SongsFragment extends Fragment {
                 if ((temp - backwardTime) > 0) {
                     startTime = startTime - backwardTime;
                     mMediaPlayer.seekTo((int) startTime);
+                }
+            }
+        });
+
+
+
+
+        //Method to Play Previous Song
+        previousButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mMediaPlayer.isPlaying()) {
+                    seekBar.setProgress(0);
+
+                }
+            }
+        });
+
+
+
+
+
+
+
+        //Method to Play Next Song
+        nextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //int temp = (int) finalTime;
+                if (mMediaPlayer.isPlaying()) {
+                    seekBar.setProgress(0);
+
                 }
             }
         });
@@ -230,28 +263,6 @@ public class SongsFragment extends Fragment {
             }
         });
 
-
-
-        //Method to Play Next Song
-        nextButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mMediaPlayer.isPlaying()) {
-
-                }
-            }
-        });
-
-
-        //Method to Play Previous Song
-        previousButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mMediaPlayer.isPlaying()) {
-
-                }
-            }
-        });
 
 
         return rootView;
