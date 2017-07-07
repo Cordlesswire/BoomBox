@@ -139,6 +139,7 @@ public class ArtistsFragment extends Fragment {
                     mMediaPlayer = MediaPlayer.create(getActivity(), word.getSoundResourceId());
                     mMediaPlayer.start();
 
+                    //Enable buttons so that they are clickable
                     previousButton.setEnabled(true);
                     forwardButton.setEnabled(true);
                     nextButton.setEnabled(true);
