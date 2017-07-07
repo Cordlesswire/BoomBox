@@ -47,7 +47,6 @@ public class SongsFragment extends Fragment {
     private int currentIndex;
 
 
-
     private MediaPlayer mMediaPlayer;
     private MediaPlayer.OnCompletionListener mCompletionListener = new MediaPlayer.OnCompletionListener() {
         @Override
@@ -164,9 +163,8 @@ public class SongsFragment extends Fragment {
                         public void onClick(View v) {
                             //Pause any sound that's currently playing to be able to go to the previous song
                             mMediaPlayer.pause();
-                            currentIndex =  word.getSoundResourceId();
                             if (currentIndex != 0) {
-                                mMediaPlayer = MediaPlayer.create(getActivity(),currentIndex -1);
+                                mMediaPlayer = MediaPlayer.create(getActivity(),word.getSoundResourceId() - 1);
                                 mMediaPlayer.start();
                             }
                         }
@@ -282,12 +280,6 @@ public class SongsFragment extends Fragment {
     private Runnable UpdateSongTime = new Runnable() {
         public void run() {
             startTime = mMediaPlayer.getCurrentPosition();
-            //startTimeView.setText(String.format("%d min, %d sec",
-            //       TimeUnit.MILLISECONDS.toMinutes((long) startTime),
-            //       TimeUnit.MILLISECONDS.toSeconds((long) startTime) -
-            //              TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.
-            //                       toMinutes((long) startTime)))
-            // );
             seekBar.setProgress((int) startTime);
             songHandler.postDelayed(this, 100);
         }

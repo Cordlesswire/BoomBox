@@ -113,6 +113,7 @@ public class ArtistsFragment extends Fragment {
         //final LinearLayout musicControls = (LinearLayout) rootView.findViewById(R.id.musicControls);
 
 
+
         listView.setAdapter(itemsAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -150,9 +151,8 @@ public class ArtistsFragment extends Fragment {
                         public void onClick(View v) {
                             //Pause any sound that's currently playing to be able to go to the previous song
                             mMediaPlayer.pause();
-                            currentIndex =  word.getSoundResourceId();
                             if (currentIndex != 0) {
-                                mMediaPlayer = MediaPlayer.create(getActivity(),currentIndex -1);
+                                mMediaPlayer = MediaPlayer.create(getActivity(),word.getSoundResourceId() - 1);
                                 mMediaPlayer.start();
                             }
                         }
@@ -170,6 +170,13 @@ public class ArtistsFragment extends Fragment {
                         oneTimeOnly = 1;
                     }
 
+                    //Methods to Display Song Duration
+                    //endTimeView.setText(String.format("%d min, %d sec",
+                    //TimeUnit.MILLISECONDS.toMinutes((long) finalTime),
+                    //TimeUnit.MILLISECONDS.toSeconds((long) finalTime) -
+                    // TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes((long)
+                    //  finalTime)))
+                    //);
 
                     seekBar.setProgress((int) startTime);
                     seekBar.setMax(mMediaPlayer.getDuration());
@@ -187,13 +194,12 @@ public class ArtistsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 int temp = (int) startTime;
-                if ((temp-backwardTime)> 0) {
-                    startTime = startTime - backwardTime;
+                if((temp+forwardTime)<=finalTime){
+                    startTime = startTime + forwardTime;
                     mMediaPlayer.seekTo((int) startTime);
                 }
             }
         });
-
 
 
         //Method to rewind the track
@@ -246,6 +252,7 @@ public class ArtistsFragment extends Fragment {
                 rewindButton.setEnabled(true);
             }
         });
+
 
         return rootView;
     }

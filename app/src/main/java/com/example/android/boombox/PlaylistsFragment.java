@@ -189,8 +189,8 @@ public class PlaylistsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 int temp = (int) startTime;
-                if ((temp-backwardTime)> 0) {
-                    startTime = startTime - backwardTime;
+                if((temp+forwardTime)<=finalTime){
+                    startTime = startTime + forwardTime;
                     mMediaPlayer.seekTo((int) startTime);
                 }
             }
