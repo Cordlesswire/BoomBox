@@ -33,6 +33,8 @@ public class AlbumsFragment extends Fragment {
 
     private int forwardTime = 5000;
     private int backwardTime = 5000;
+    //Keeps track of Current Song
+    private int currentIndex;
 
 
     private MediaPlayer mMediaPlayer;
@@ -110,7 +112,6 @@ public class AlbumsFragment extends Fragment {
         ListView listView = (ListView) rootView.findViewById(R.id.list);
         //final LinearLayout musicControls = (LinearLayout) rootView.findViewById(R.id.musicControls);
 
-
         listView.setAdapter(itemsAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -118,7 +119,7 @@ public class AlbumsFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //Hide the music controls until a user clicks on a song for better User Experience
                 // musicControls.setVisibility(View.VISIBLE);
-                Word word = songs.get(position);
+                final Word word = songs.get(position);
                 releaseMediaPlayer();
 
                 int requestResult = mAudioManager.requestAudioFocus(afListener,
@@ -126,8 +127,38 @@ public class AlbumsFragment extends Fragment {
                 if (requestResult == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
                     mMediaPlayer = MediaPlayer.create(getActivity(), word.getSoundResourceId());
                     mMediaPlayer.start();
-                    mMediaPlayer.setOnCompletionListener(mCompletionListener);
 
+                    //Method to Play Next Song
+                    nextButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            //Pause any sound that's currently playing to be able to load the next song
+                            mMediaPlayer.pause();
+                            //Increment our current song Index
+                            currentIndex ++;
+                            if (currentIndex < (songs.size() - 1)) {
+                                mMediaPlayer = MediaPlayer.create(getActivity(), word.getSoundResourceId() + currentIndex);
+                                mMediaPlayer.start();
+                            }
+                        }
+                    });
+
+                    //Method to Play Previous Song
+                    previousButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            //Pause any sound that's currently playing to be able to go to the previous song
+                            mMediaPlayer.pause();
+                            currentIndex =  word.getSoundResourceId();
+                            if (currentIndex != 0) {
+                                mMediaPlayer = MediaPlayer.create(getActivity(),currentIndex -1);
+                                mMediaPlayer.start();
+                            }
+                        }
+                    });
+
+
+                    mMediaPlayer.setOnCompletionListener(mCompletionListener);
 
 
                     finalTime = mMediaPlayer.getDuration();
@@ -137,9 +168,6 @@ public class AlbumsFragment extends Fragment {
                         seekBar.setMax((int) finalTime);
                         oneTimeOnly = 1;
                     }
-
-
-
 
                     //Methods to Display Song Duration
                     //endTimeView.setText(String.format("%d min, %d sec",
@@ -173,8 +201,8 @@ public class AlbumsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 int temp = (int) startTime;
-                if ((temp+forwardTime)<=finalTime) {
-                    startTime = startTime + forwardTime;
+                if ((temp-backwardTime)> 0) {
+                    startTime = startTime - backwardTime;
                     mMediaPlayer.seekTo((int) startTime);
                 }
             }
@@ -192,39 +220,6 @@ public class AlbumsFragment extends Fragment {
                 }
             }
         });
-
-
-
-
-        //Method to Play Previous Song
-        previousButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mMediaPlayer.isPlaying()) {
-                    seekBar.setProgress(0);
-
-                }
-            }
-        });
-
-
-
-
-
-        //Method to Play Next Song
-        nextButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //int temp = (int) finalTime;
-                if (mMediaPlayer.isPlaying()) {
-                    seekBar.setProgress(0);
-
-                    // mMediaPlayer.setDataSource();
-                    // mMediaPlayer.start();
-                }
-            }
-        });
-
 
 
 
@@ -258,13 +253,30 @@ public class AlbumsFragment extends Fragment {
                 //Displays "Pause" button and replaces the "Play" button on the controls layout
                 pauseButton.setVisibility(View.VISIBLE);
 
+                previousButton.setEnabled(true);
+                forwardButton.setEnabled(true);
+                nextButton.setEnabled(true);
+                rewindButton.setEnabled(true);
             }
         });
 
 
-
         return rootView;
     }
+
+    private Runnable UpdateSongTime = new Runnable() {
+        public void run() {
+            startTime = mMediaPlayer.getCurrentPosition();
+            //startTimeView.setText(String.format("%d min, %d sec",
+            //       TimeUnit.MILLISECONDS.toMinutes((long) startTime),
+            //       TimeUnit.MILLISECONDS.toSeconds((long) startTime) -
+            //              TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.
+            //                       toMinutes((long) startTime)))
+            // );
+            seekBar.setProgress((int) startTime);
+            songHandler.postDelayed(this, 100);
+        }
+    };
 
     @Override
     public void onStop() {
@@ -287,18 +299,6 @@ public class AlbumsFragment extends Fragment {
         }
     }
 
-    private Runnable UpdateSongTime = new Runnable() {
-        public void run() {
-            startTime = mMediaPlayer.getCurrentPosition();
-            //startTimeView.setText(String.format("%d min, %d sec",
-            //       TimeUnit.MILLISECONDS.toMinutes((long) startTime),
-            //       TimeUnit.MILLISECONDS.toSeconds((long) startTime) -
-            //              TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.
-            //                       toMinutes((long) startTime)))
-            // );
-            seekBar.setProgress((int) startTime);
-            songHandler.postDelayed(this, 100);
-        }
-    };
+
 
 }
