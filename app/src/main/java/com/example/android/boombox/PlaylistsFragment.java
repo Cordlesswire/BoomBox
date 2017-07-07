@@ -142,6 +142,21 @@ public class PlaylistsFragment extends Fragment {
                     });
 
 
+                    //Method to Play Previous Song
+                    previousButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            //Pause any sound that's currently playing to be able to load the next song
+                            mMediaPlayer.pause();
+                            currentIndex =  word.getSoundResourceId();
+                            if (currentIndex != 0) {
+                                mMediaPlayer = MediaPlayer.create(getActivity(),currentIndex -1);
+                                mMediaPlayer.start();
+                            }
+                        }
+                    });
+
+
                     mMediaPlayer.setOnCompletionListener(mCompletionListener);
 
 
@@ -152,21 +167,6 @@ public class PlaylistsFragment extends Fragment {
                         seekBar.setMax((int) finalTime);
                         oneTimeOnly = 1;
                     }
-
-                    //Methods to Display Song Duration
-                    //endTimeView.setText(String.format("%d min, %d sec",
-                    //TimeUnit.MILLISECONDS.toMinutes((long) finalTime),
-                    //TimeUnit.MILLISECONDS.toSeconds((long) finalTime) -
-                    // TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes((long)
-                    //  finalTime)))
-                    //);
-
-                    //startTimeView.setText(String.format("%d min, %d sec",
-                    //TimeUnit.MILLISECONDS.toMinutes((long) startTime),
-                    //TimeUnit.MILLISECONDS.toSeconds((long) startTime) -
-                    //TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes((long)
-                    //startTime)))
-                    // );
 
 
                     seekBar.setProgress((int) startTime);
@@ -191,20 +191,6 @@ public class PlaylistsFragment extends Fragment {
                 }
             }
         });
-
-
-
-        //Method to Play Previous Song
-        previousButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mMediaPlayer.isPlaying()) {
-                    seekBar.setProgress(0);
-
-                }
-            }
-        });
-
 
 
 
