@@ -142,6 +142,12 @@ public class SongsFragment extends Fragment {
                     mMediaPlayer = MediaPlayer.create(getActivity(), word.getSoundResourceId());
                     mMediaPlayer.start();
 
+                    previousButton.setEnabled(true);
+                    forwardButton.setEnabled(true);
+                    nextButton.setEnabled(true);
+                    rewindButton.setEnabled(true);
+
+
                     //Method to Play Next Song
                     nextButton.setOnClickListener(new View.OnClickListener() {
                         @Override

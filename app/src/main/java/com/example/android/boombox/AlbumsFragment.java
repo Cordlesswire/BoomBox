@@ -81,6 +81,13 @@ public class AlbumsFragment extends Fragment {
         forwardButton = (ImageView) rootView.findViewById(R.id.forwardButton);
         nextButton = (ImageView) rootView.findViewById(R.id.nextButton);
 
+        previousButton.setEnabled(false);
+        forwardButton.setEnabled(false);
+        nextButton.setEnabled(false);
+        rewindButton.setEnabled(false);
+        pauseButton.setEnabled(false);
+        playButton.setEnabled(false);
+
         seekBar = (SeekBar) rootView.findViewById(R.id.seekBar);
         seekBar.setClickable(false);
 
@@ -128,6 +135,12 @@ public class AlbumsFragment extends Fragment {
                 if (requestResult == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
                     mMediaPlayer = MediaPlayer.create(getActivity(), word.getSoundResourceId());
                     mMediaPlayer.start();
+
+                    previousButton.setEnabled(true);
+                    forwardButton.setEnabled(true);
+                    nextButton.setEnabled(true);
+                    rewindButton.setEnabled(true);
+
 
                     //Method to Play Next Song
                     nextButton.setOnClickListener(new View.OnClickListener() {

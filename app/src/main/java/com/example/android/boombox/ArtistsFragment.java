@@ -85,6 +85,15 @@ public class ArtistsFragment extends Fragment {
         forwardButton = (ImageView) rootView.findViewById(R.id.forwardButton);
         nextButton = (ImageView) rootView.findViewById(R.id.nextButton);
 
+
+        //Disable buttons because we can't skip a song if it has not started playing yet
+        previousButton.setEnabled(false);
+        forwardButton.setEnabled(false);
+        nextButton.setEnabled(false);
+        rewindButton.setEnabled(false);
+        pauseButton.setEnabled(false);
+        playButton.setEnabled(false);
+
         seekBar = (SeekBar) rootView.findViewById(R.id.seekBar);
         seekBar.setClickable(false);
 
@@ -129,6 +138,11 @@ public class ArtistsFragment extends Fragment {
                 if (requestResult == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
                     mMediaPlayer = MediaPlayer.create(getActivity(), word.getSoundResourceId());
                     mMediaPlayer.start();
+
+                    previousButton.setEnabled(true);
+                    forwardButton.setEnabled(true);
+                    nextButton.setEnabled(true);
+                    rewindButton.setEnabled(true);
 
                     //Method to Play Next Song
                     nextButton.setOnClickListener(new View.OnClickListener() {
