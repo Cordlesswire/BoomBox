@@ -98,8 +98,8 @@ public class PlaylistsFragment extends Fragment {
 
         final ArrayList<Word> songs = new ArrayList<>();
 
-        songs.add(new Word("Contains no lyrics- Just beats()Instrumentals", "Instrumentals", R.drawable.childish_gambino_because, R.raw.childish_gambino_3005));
-        songs.add(new Word("A mix of Jazz fused with Hip Hop", "JazzHop", R.drawable.childish_gambino, R.raw.childish_gambino_freestyle));
+        songs.add(new Word("Contains no lyrics- Just beats()Instrumentals", "Instrumentals", R.drawable.gas_lab, R.raw.gas_lab_chemistry));
+        songs.add(new Word("A mix of Jazz fused with Hip Hop", "JazzHop", R.drawable.gas_lab, R.raw.gas_lab_jazz_hop));
         songs.add(new Word("Gas Lab", "Chemistry", R.drawable.gas_lab, R.raw.gas_lab_chemistry));
         songs.add(new Word("Gas Lab (feat. Natayla & Traum Diggs)", "Jazz Hop", R.drawable.gas_lab, R.raw.gas_lab_jazz_hop));
         songs.add(new Word("J.Cole", "Losing my Balance", R.drawable.j_cole, R.raw.jcole_losing_my_balance));
