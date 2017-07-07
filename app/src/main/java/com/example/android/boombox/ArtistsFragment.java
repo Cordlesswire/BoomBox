@@ -62,13 +62,13 @@ public class ArtistsFragment extends Fragment {
         //Don't need to play raw files but redirect the user to the specified artists songs list when the user clicks on whichever artist
         //Can leave it as a ListView information will be easier for the user to read this way
         words.add(new Word("Childish Gambino","number of songs in memory",R.drawable.childish_gambino,R.raw.childish_gambino_3005));
-        words.add(new Word("Gas Lab","number of songs in memory",R.drawable.gas_lab,R.raw.childish_gambino_3005));
-        words.add(new Word("J.Cole","number of songs in memory",R.drawable.j_cole,R.raw.childish_gambino_3005));
-        words.add(new Word("JABS","number of songs in memory",R.drawable.jabs_willow,R.raw.childish_gambino_3005));
-        words.add(new Word("Téo","number of songs in memory",R.drawable.teo,R.raw.childish_gambino_3005));
-        words.add(new Word("The Muffinz","number of songs in memory",R.drawable.the_muffinz,R.raw.childish_gambino_3005));
-        words.add(new Word("Tupac Shakur","number of songs in memory",R.drawable.tupac,R.raw.childish_gambino_3005));
-        words.add(new Word("Willow","number of songs in memory",R.drawable.willow,R.raw.childish_gambino_3005));
+        words.add(new Word("Gas Lab","number of songs in memory",R.drawable.gas_lab,R.raw.gas_lab_chemistry));
+        words.add(new Word("J.Cole","number of songs in memory",R.drawable.j_cole,R.raw.jcole_losing_my_balance));
+        words.add(new Word("JABS","number of songs in memory",R.drawable.jabs_willow,R.raw.jabs_payiva));
+        words.add(new Word("Téo","number of songs in memory",R.drawable.teo,R.raw.teo_how_low));
+        words.add(new Word("The Muffinz","number of songs in memory",R.drawable.the_muffinz,R.raw.teo_enlightened_now));
+        words.add(new Word("Tupac Shakur","number of songs in memory",R.drawable.tupac,R.raw.gas_lab_jazz_hop));
+        words.add(new Word("Willow","number of songs in memory",R.drawable.willow,R.raw.willow_9));
 
 
         WordAdapter itemsAdapter = new WordAdapter(getActivity(),words,R.color.category_colors);
