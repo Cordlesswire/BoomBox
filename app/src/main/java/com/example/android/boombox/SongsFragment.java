@@ -146,6 +146,7 @@ public class SongsFragment extends Fragment {
                     forwardButton.setEnabled(true);
                     nextButton.setEnabled(true);
                     rewindButton.setEnabled(true);
+                    pauseButton.setEnabled(true);
 
 
                     //Method to Play Next Song

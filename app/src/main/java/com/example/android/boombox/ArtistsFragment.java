@@ -143,6 +143,7 @@ public class ArtistsFragment extends Fragment {
                     forwardButton.setEnabled(true);
                     nextButton.setEnabled(true);
                     rewindButton.setEnabled(true);
+                    pauseButton.setEnabled(true);
 
                     //Method to Play Next Song
                     nextButton.setOnClickListener(new View.OnClickListener() {
