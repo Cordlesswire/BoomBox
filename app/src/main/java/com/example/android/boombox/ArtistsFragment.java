@@ -151,7 +151,7 @@ public class ArtistsFragment extends Fragment {
                         public void onClick(View v) {
                             //Pause any sound that's currently playing to be able to go to the previous song
                             mMediaPlayer.pause();
-                            if (currentIndex != 0) {
+                            if (currentIndex > 1) {
                                 mMediaPlayer = MediaPlayer.create(getActivity(),word.getSoundResourceId() - 1);
                                 mMediaPlayer.start();
                             }

@@ -154,7 +154,7 @@ public class PlaylistsFragment extends Fragment {
                             //Pause any sound that's currently playing to be able to go to the previous song
                             mMediaPlayer.pause();
                             currentIndex =  word.getSoundResourceId();
-                            if (currentIndex != 0) {
+                            if (currentIndex > 1) {
                                 mMediaPlayer = MediaPlayer.create(getActivity(),currentIndex -1);
                                 mMediaPlayer.start();
                             }
