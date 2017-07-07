@@ -184,7 +184,6 @@ public class PlaylistsFragment extends Fragment {
             }
         });
 
-
         //Method to fast forward the track
         forwardButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -196,6 +195,7 @@ public class PlaylistsFragment extends Fragment {
                 }
             }
         });
+
 
 
 
