@@ -147,19 +147,14 @@ public class SongsFragment extends Fragment {
                     nextButton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
+                            //Pause any sound that's currently playing to be able to load the next song
                             mMediaPlayer.pause();
+                            //Increment our current song Index
                             currentIndex ++;
                             if (currentIndex < (songs.size() - 1)) {
                                 mMediaPlayer = MediaPlayer.create(getActivity(), word.getSoundResourceId() + currentIndex);
                                 mMediaPlayer.start();
                             }
-                           // else if(mMediaPlayer != null){
-                                // Set the media player back to null. For our code, we've decided that
-                                // setting the media player to null is an easy way to tell that the media player
-                                // is not configured to play an audio file at the moment.
-                              //  mMediaPlayer = null;
-                              //  mAudioManager.abandonAudioFocus(afListener);
-                           // }
                         }
                     });
 
@@ -226,11 +221,6 @@ public class SongsFragment extends Fragment {
                 }
             }
         });
-
-
-
-
-
 
 
 

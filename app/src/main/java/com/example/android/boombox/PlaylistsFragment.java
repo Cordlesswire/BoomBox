@@ -71,12 +71,10 @@ public class PlaylistsFragment extends Fragment {
 
     public static int oneTimeOnly = 0;
 
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
-
-        View rootView = inflater.inflate(R.layout.words_list,container,false);
+        View rootView = inflater.inflate(R.layout.words_list, container, false);
 
         //Initialize Views and Buttons
         previousButton = (ImageView) rootView.findViewById(R.id.previousButton);
@@ -89,6 +87,7 @@ public class PlaylistsFragment extends Fragment {
         seekBar = (SeekBar) rootView.findViewById(R.id.seekBar);
         seekBar.setClickable(false);
 
+
         //startTimeView = (TextView) rootView.findViewById(R.id.startTime);
         //songTitle = (TextView) rootView.findViewById(R.id.songTitle);
         // endTimeView = (TextView) rootView.findViewById(R.id.endTime);
@@ -99,18 +98,11 @@ public class PlaylistsFragment extends Fragment {
 
         final ArrayList<Word> songs = new ArrayList<>();
 
-        //We don't need to make the ListView play sound when its clicked...edit the parameters so that we don't have to add a raw file
-        songs.add(new Word("Name of The Playlist", "Small description e.g: mood sad", R.raw.childish_gambino_3005));
-        songs.add(new Word("Name of The Playlist", "Small description e.g: mood sad", R.raw.willow_9));
-        songs.add(new Word("Name of The Playlist", "Small description e.g: mood sad", R.raw.teo_how_low));
-        songs.add(new Word("Name of The Playlist", "Small description e.g: mood sad", R.raw.jcole_losing_my_balance));
-        songs.add(new Word("Name of The Playlist", "Small description e.g: mood sad", R.raw.willow_female_energy));
-        songs.add(new Word("Name of The Playlist", "Small description e.g: mood sad", R.raw.willow_marceline));
-        songs.add(new Word("Name of The Playlist", "Small description e.g: mood sad", R.raw.gas_lab_jazz_hop));
-        songs.add(new Word("Name of The Playlist", "Small description e.g: mood sad", R.raw.childish_gambino_freestyle));
-        songs.add(new Word("Name of The Playlist", "Small description e.g: mood sad", R.raw.gas_lab_chemistry));
-        songs.add(new Word("Name of The Playlist", "Small description e.g: mood sad", R.raw.jabs_payiva));
-
+        songs.add(new Word("Contains no lyrics- Just beats()Instrumentals", "Instrumentals", R.drawable.childish_gambino_because, R.raw.childish_gambino_3005));
+        songs.add(new Word("A mix of Jazz fused with Hip Hop", "JazzHop", R.drawable.childish_gambino, R.raw.childish_gambino_freestyle));
+        songs.add(new Word("Gas Lab", "Chemistry", R.drawable.gas_lab, R.raw.gas_lab_chemistry));
+        songs.add(new Word("Gas Lab (feat. Natayla & Traum Diggs)", "Jazz Hop", R.drawable.gas_lab, R.raw.gas_lab_jazz_hop));
+        songs.add(new Word("J.Cole", "Losing my Balance", R.drawable.j_cole, R.raw.jcole_losing_my_balance));
 
 
         WordAdapter itemsAdapter = new WordAdapter(getActivity(), songs, R.color.category_colors);
@@ -125,7 +117,7 @@ public class PlaylistsFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //Hide the music controls until a user clicks on a song for better User Experience
                 // musicControls.setVisibility(View.VISIBLE);
-                Word word = songs.get(position);
+                final Word word = songs.get(position);
                 releaseMediaPlayer();
 
                 int requestResult = mAudioManager.requestAudioFocus(afListener,
@@ -133,8 +125,24 @@ public class PlaylistsFragment extends Fragment {
                 if (requestResult == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
                     mMediaPlayer = MediaPlayer.create(getActivity(), word.getSoundResourceId());
                     mMediaPlayer.start();
-                    mMediaPlayer.setOnCompletionListener(mCompletionListener);
 
+                    //Method to Play Next Song
+                    nextButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            //Pause any sound that's currently playing to be able to load the next song
+                            mMediaPlayer.pause();
+                            //Increment our current song Index
+                            currentIndex ++;
+                            if (currentIndex < (songs.size() - 1)) {
+                                mMediaPlayer = MediaPlayer.create(getActivity(), word.getSoundResourceId() + currentIndex);
+                                mMediaPlayer.start();
+                            }
+                        }
+                    });
+
+
+                    mMediaPlayer.setOnCompletionListener(mCompletionListener);
 
 
                     finalTime = mMediaPlayer.getDuration();
@@ -144,9 +152,6 @@ public class PlaylistsFragment extends Fragment {
                         seekBar.setMax((int) finalTime);
                         oneTimeOnly = 1;
                     }
-
-
-
 
                     //Methods to Display Song Duration
                     //endTimeView.setText(String.format("%d min, %d sec",
@@ -180,26 +185,12 @@ public class PlaylistsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 int temp = (int) startTime;
-                if ((temp+forwardTime)<=finalTime) {
-                    startTime = startTime + forwardTime;
-                    mMediaPlayer.seekTo((int) startTime);
-                }
-            }
-        });
-
-
-        //Method to rewind the track
-        rewindButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int temp = (int) startTime;
                 if ((temp-backwardTime)> 0) {
                     startTime = startTime - backwardTime;
                     mMediaPlayer.seekTo((int) startTime);
                 }
             }
         });
-
 
 
 
@@ -217,21 +208,17 @@ public class PlaylistsFragment extends Fragment {
 
 
 
-
-        //Method to Play Next Song
-        nextButton.setOnClickListener(new View.OnClickListener() {
+        //Method to rewind the track
+        rewindButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //int temp = (int) finalTime;
-                if (mMediaPlayer.isPlaying()) {
-                    seekBar.setProgress(0);
-
-                    // mMediaPlayer.setDataSource();
-                    // mMediaPlayer.start();
+                int temp = (int) startTime;
+                if ((temp-backwardTime)> 0) {
+                    startTime = startTime - backwardTime;
+                    mMediaPlayer.seekTo((int) startTime);
                 }
             }
         });
-
 
 
 
@@ -269,9 +256,22 @@ public class PlaylistsFragment extends Fragment {
         });
 
 
-
         return rootView;
     }
+
+    private Runnable UpdateSongTime = new Runnable() {
+        public void run() {
+            startTime = mMediaPlayer.getCurrentPosition();
+            //startTimeView.setText(String.format("%d min, %d sec",
+            //       TimeUnit.MILLISECONDS.toMinutes((long) startTime),
+            //       TimeUnit.MILLISECONDS.toSeconds((long) startTime) -
+            //              TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.
+            //                       toMinutes((long) startTime)))
+            // );
+            seekBar.setProgress((int) startTime);
+            songHandler.postDelayed(this, 100);
+        }
+    };
 
     @Override
     public void onStop() {
@@ -294,18 +294,6 @@ public class PlaylistsFragment extends Fragment {
         }
     }
 
-    private Runnable UpdateSongTime = new Runnable() {
-        public void run() {
-            startTime = mMediaPlayer.getCurrentPosition();
-            //startTimeView.setText(String.format("%d min, %d sec",
-            //       TimeUnit.MILLISECONDS.toMinutes((long) startTime),
-            //       TimeUnit.MILLISECONDS.toSeconds((long) startTime) -
-            //              TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.
-            //                       toMinutes((long) startTime)))
-            // );
-            seekBar.setProgress((int) startTime);
-            songHandler.postDelayed(this, 100);
-        }
-    };
+
 
 }
