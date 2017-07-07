@@ -57,21 +57,21 @@ public class ArtistsFragment extends Fragment {
 
         mAudioManager = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
 
-        final ArrayList<Word> words = new ArrayList<>();
+        final ArrayList<Word> songs = new ArrayList<>();
 
         //Don't need to play raw files but redirect the user to the specified artists songs list when the user clicks on whichever artist
         //Can leave it as a ListView information will be easier for the user to read this way
-        words.add(new Word("Childish Gambino","number of songs in memory",R.drawable.childish_gambino,R.raw.childish_gambino_3005));
-        words.add(new Word("Gas Lab","number of songs in memory",R.drawable.gas_lab,R.raw.gas_lab_chemistry));
-        words.add(new Word("J.Cole","number of songs in memory",R.drawable.j_cole,R.raw.jcole_losing_my_balance));
-        words.add(new Word("JABS","number of songs in memory",R.drawable.jabs_willow,R.raw.jabs_payiva));
-        words.add(new Word("Téo","number of songs in memory",R.drawable.teo,R.raw.teo_how_low));
-        words.add(new Word("The Muffinz","number of songs in memory",R.drawable.the_muffinz,R.raw.teo_enlightened_now));
-        words.add(new Word("Tupac Shakur","number of songs in memory",R.drawable.tupac,R.raw.gas_lab_jazz_hop));
-        words.add(new Word("Willow","number of songs in memory",R.drawable.willow,R.raw.willow_9));
+        songs.add(new Word("Childish Gambino","number of songs in memory",R.drawable.childish_gambino,R.raw.childish_gambino_3005));
+        songs.add(new Word("Gas Lab","number of songs in memory",R.drawable.gas_lab,R.raw.gas_lab_chemistry));
+        songs.add(new Word("J.Cole","number of songs in memory",R.drawable.j_cole,R.raw.jcole_losing_my_balance));
+        songs.add(new Word("JABS","number of songs in memory",R.drawable.jabs_willow,R.raw.jabs_payiva));
+        songs.add(new Word("Téo","number of songs in memory",R.drawable.teo,R.raw.teo_how_low));
+        songs.add(new Word("The Muffinz","number of songs in memory",R.drawable.the_muffinz,R.raw.teo_enlightened_now));
+        songs.add(new Word("Tupac Shakur","number of songs in memory",R.drawable.tupac,R.raw.gas_lab_jazz_hop));
+        songs.add(new Word("Willow","number of songs in memory",R.drawable.willow,R.raw.willow_9));
 
 
-        WordAdapter itemsAdapter = new WordAdapter(getActivity(),words,R.color.category_colors);
+        WordAdapter itemsAdapter = new WordAdapter(getActivity(),songs,R.color.category_colors);
         ListView listView = (ListView) rootView.findViewById(R.id.list);
 
         listView.setAdapter(itemsAdapter);
@@ -79,7 +79,7 @@ public class ArtistsFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Word word = words.get(position);
+                Word word = songs.get(position);
                 releaseMediaPlayer();
                 int requestResult = mAudioManager.requestAudioFocus(afListener,
                         AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);

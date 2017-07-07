@@ -30,6 +30,7 @@ import org.w3c.dom.Text;
  */
 public class SongsFragment extends Fragment {
 
+    //Declare Variables
     private Handler songHandler = new Handler();
 
     private ImageView previousButton, rewindButton, pauseButton, playButton, forwardButton, nextButton;

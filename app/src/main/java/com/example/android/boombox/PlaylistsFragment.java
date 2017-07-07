@@ -64,23 +64,23 @@ public class PlaylistsFragment extends Fragment {
         mAudioManager = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
 
 
-        final ArrayList<Word> words = new ArrayList<>();
+        final ArrayList<Word> songs = new ArrayList<>();
 
         //We don't need to make the ListView play sound when its clicked...edit the parameters so that we don't have to add a raw file
-        words.add(new Word("Name of The Playlist", "Small description e.g: mood sad", R.raw.childish_gambino_3005));
-        words.add(new Word("Name of The Playlist", "Small description e.g: mood sad", R.raw.willow_9));
-        words.add(new Word("Name of The Playlist", "Small description e.g: mood sad", R.raw.teo_how_low));
-        words.add(new Word("Name of The Playlist", "Small description e.g: mood sad", R.raw.jcole_losing_my_balance));
-        words.add(new Word("Name of The Playlist", "Small description e.g: mood sad", R.raw.willow_female_energy));
-        words.add(new Word("Name of The Playlist", "Small description e.g: mood sad", R.raw.willow_marceline));
-        words.add(new Word("Name of The Playlist", "Small description e.g: mood sad", R.raw.gas_lab_jazz_hop));
-        words.add(new Word("Name of The Playlist", "Small description e.g: mood sad", R.raw.childish_gambino_freestyle));
-        words.add(new Word("Name of The Playlist", "Small description e.g: mood sad", R.raw.gas_lab_chemistry));
-        words.add(new Word("Name of The Playlist", "Small description e.g: mood sad", R.raw.jabs_payiva));
+        songs.add(new Word("Name of The Playlist", "Small description e.g: mood sad", R.raw.childish_gambino_3005));
+        songs.add(new Word("Name of The Playlist", "Small description e.g: mood sad", R.raw.willow_9));
+        songs.add(new Word("Name of The Playlist", "Small description e.g: mood sad", R.raw.teo_how_low));
+        songs.add(new Word("Name of The Playlist", "Small description e.g: mood sad", R.raw.jcole_losing_my_balance));
+        songs.add(new Word("Name of The Playlist", "Small description e.g: mood sad", R.raw.willow_female_energy));
+        songs.add(new Word("Name of The Playlist", "Small description e.g: mood sad", R.raw.willow_marceline));
+        songs.add(new Word("Name of The Playlist", "Small description e.g: mood sad", R.raw.gas_lab_jazz_hop));
+        songs.add(new Word("Name of The Playlist", "Small description e.g: mood sad", R.raw.childish_gambino_freestyle));
+        songs.add(new Word("Name of The Playlist", "Small description e.g: mood sad", R.raw.gas_lab_chemistry));
+        songs.add(new Word("Name of The Playlist", "Small description e.g: mood sad", R.raw.jabs_payiva));
 
 
 
-        WordAdapter itemsAdapter = new WordAdapter(getActivity(), words, R.color.category_colors);
+        WordAdapter itemsAdapter = new WordAdapter(getActivity(), songs, R.color.category_colors);
         ListView listView = (ListView) rootView.findViewById(R.id.list);
 
 
@@ -90,7 +90,7 @@ public class PlaylistsFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Word word = words.get(position);
+                Word word = songs.get(position);
                 releaseMediaPlayer();
 
 
