@@ -236,6 +236,7 @@ public class AlbumsFragment extends Fragment {
                     playButton.setVisibility(View.VISIBLE);
                     playButton.setEnabled(true);
 
+                    //Disable Control buttons since we don't need them....when song is not Playing
                     previousButton.setEnabled(false);
                     forwardButton.setEnabled(false);
                     nextButton.setEnabled(false);
@@ -255,6 +256,7 @@ public class AlbumsFragment extends Fragment {
                 //Displays "Pause" button and replaces the "Play" button on the controls layout
                 pauseButton.setVisibility(View.VISIBLE);
 
+                //Enable buttons so that the user can user them to manage songs
                 previousButton.setEnabled(true);
                 forwardButton.setEnabled(true);
                 nextButton.setEnabled(true);
