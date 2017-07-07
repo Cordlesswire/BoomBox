@@ -158,6 +158,20 @@ public class SongsFragment extends Fragment {
                         }
                     });
 
+                    //Method to Play Previous Song
+                    previousButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            //Pause any sound that's currently playing to be able to load the next song
+                            mMediaPlayer.pause();
+                            currentIndex =  word.getSoundResourceId();
+                            if (currentIndex != 0) {
+                                mMediaPlayer = MediaPlayer.create(getActivity(),currentIndex -1);
+                                mMediaPlayer.start();
+                            }
+                        }
+                    });
+
 
                     mMediaPlayer.setOnCompletionListener(mCompletionListener);
 
@@ -208,21 +222,6 @@ public class SongsFragment extends Fragment {
                 }
             }
         });
-
-
-
-        //Method to Play Previous Song
-        previousButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mMediaPlayer.isPlaying()) {
-                    seekBar.setProgress(0);
-
-                }
-            }
-        });
-
-
 
 
         //Method to rewind the track
