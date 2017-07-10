@@ -168,6 +168,7 @@ public class ArtistsFragment extends Fragment {
                             if (currentIndex < (songs.size() - 1)) {
                                 mMediaPlayer = MediaPlayer.create(getActivity(), word.getSoundResourceId() + currentIndex);
                                 mMediaPlayer.start();
+                                songTitle.setText(word.getArtistName() + " - " + word.getTitle() + ".mp3");
                             }
                         }
                     });

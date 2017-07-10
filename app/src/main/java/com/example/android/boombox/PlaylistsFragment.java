@@ -181,7 +181,7 @@ public class PlaylistsFragment extends Fragment {
                             if (currentIndex > 1) {
                                 mMediaPlayer = MediaPlayer.create(getActivity(),currentIndex -1);
                                 mMediaPlayer.start();
-                                songTitle.setText(word.getArtistName() + "-" + word.getTitle() + ".mp3");
+                                songTitle.setText(word.getArtistName() + " - " + word.getTitle() + ".mp3");
                             }
                         }
                     });
