@@ -14,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SeekBar;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -36,6 +37,11 @@ public class ArtistsFragment extends Fragment {
 
     //Keeps track of Current Song
       private int currentIndex = 0;
+
+    //Variable to Store song information
+    private TextView songTitle;
+    private  String artistName;
+    private String songName;
 
 
 
@@ -97,8 +103,9 @@ public class ArtistsFragment extends Fragment {
         seekBar = (SeekBar) rootView.findViewById(R.id.seekBar);
         seekBar.setClickable(false);
 
+        songTitle = (TextView) rootView.findViewById(R.id.songInformation);
+
         //startTimeView = (TextView) rootView.findViewById(R.id.startTime);
-        //songTitle = (TextView) rootView.findViewById(R.id.songTitle);
         // endTimeView = (TextView) rootView.findViewById(R.id.endTime);
 
 
@@ -137,6 +144,10 @@ public class ArtistsFragment extends Fragment {
                         AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
                 if (requestResult == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
                     mMediaPlayer = MediaPlayer.create(getActivity(), word.getSoundResourceId());
+                    artistName= word.getArtistName();
+                    songName= word.getTitle();
+                    mMediaPlayer.start();
+                    songTitle.setText(artistName + " - "+ songName + ".mp3");
                     mMediaPlayer.start();
 
                     //Enable buttons so that they are clickable

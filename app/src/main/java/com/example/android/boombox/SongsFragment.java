@@ -46,6 +46,7 @@ public class SongsFragment extends Fragment {
     //Keeps track of Current Song
     private int currentIndex;
     private  String artistName;
+    private String songName;
 
 
     private MediaPlayer mMediaPlayer;
@@ -146,9 +147,10 @@ public class SongsFragment extends Fragment {
                         AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
                 if (requestResult == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
                     mMediaPlayer = MediaPlayer.create(getActivity(), word.getSoundResourceId());
-                    artistName= word.getTitle();
+                    artistName= word.getArtistName();
+                    songName= word.getTitle();
                     mMediaPlayer.start();
-                    songTitle.setText(artistName);
+                    songTitle.setText(artistName + " - "+ songName + ".mp3");
 
 
                     //Enable buttons so that they are clickable
@@ -170,6 +172,7 @@ public class SongsFragment extends Fragment {
                             if (currentIndex < (songs.size() - 1)) {
                                 mMediaPlayer = MediaPlayer.create(getActivity(), word.getSoundResourceId() + currentIndex);
                                 mMediaPlayer.start();
+                                songTitle.setText(artistName + " - "+ songName + ".mp3");
                             }
                         }
                     });
@@ -183,6 +186,7 @@ public class SongsFragment extends Fragment {
                             if (currentIndex > 1) {
                                 mMediaPlayer = MediaPlayer.create(getActivity(),word.getSoundResourceId() - 1);
                                 mMediaPlayer.start();
+                                songTitle.setText(artistName + " - "+ songName + ".mp3");
                             }
                         }
                     });

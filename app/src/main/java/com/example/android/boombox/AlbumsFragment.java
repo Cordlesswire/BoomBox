@@ -14,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SeekBar;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -35,6 +36,11 @@ public class AlbumsFragment extends Fragment {
     private int backwardTime = 5000;
     //Keeps track of Current Song
     private int currentIndex;
+
+    //Variable to Store song information
+    private TextView songTitle;
+    private  String artistName;
+    private String songName;
 
 
     private MediaPlayer mMediaPlayer;
@@ -93,11 +99,12 @@ public class AlbumsFragment extends Fragment {
         seekBar.setClickable(false);
 
         //startTimeView = (TextView) rootView.findViewById(R.id.startTime);
-        //songTitle = (TextView) rootView.findViewById(R.id.songTitle);
         // endTimeView = (TextView) rootView.findViewById(R.id.endTime);
 
 
         mAudioManager = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
+
+        songTitle = (TextView) rootView.findViewById(R.id.songInformation);
 
 
         final ArrayList<Word> songs = new ArrayList<>();
@@ -135,7 +142,10 @@ public class AlbumsFragment extends Fragment {
                         AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
                 if (requestResult == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
                     mMediaPlayer = MediaPlayer.create(getActivity(), word.getSoundResourceId());
+                    artistName= word.getArtistName();
+                    songName= word.getTitle();
                     mMediaPlayer.start();
+                    songTitle.setText(artistName + " - "+ songName + ".mp3");
 
                     //Enable buttons so that they are clickable
                     //previousButton.setEnabled(true); Still need to fix Previous track method
@@ -156,6 +166,7 @@ public class AlbumsFragment extends Fragment {
                             if (currentIndex < (songs.size() - 1)) {
                                 mMediaPlayer = MediaPlayer.create(getActivity(), word.getSoundResourceId() + currentIndex);
                                 mMediaPlayer.start();
+                                songTitle.setText(word.getArtistName() + " - " + word.getTitle() + ".mp3");
                             }
                         }
                     });
@@ -169,6 +180,7 @@ public class AlbumsFragment extends Fragment {
                             if (currentIndex > 1) {
                                 mMediaPlayer = MediaPlayer.create(getActivity(),word.getSoundResourceId() - 1);
                                 mMediaPlayer.start();
+                                songTitle.setText(word.getArtistName() + "-" + word.getTitle() + ".mp3");
                             }
                         }
                     });
@@ -257,7 +269,7 @@ public class AlbumsFragment extends Fragment {
                 pauseButton.setVisibility(View.VISIBLE);
 
                 //Enable buttons so that the user can user them to manage songs
-                previousButton.setEnabled(true);
+                //previousButton.setEnabled(true);
                 forwardButton.setEnabled(true);
                 nextButton.setEnabled(true);
                 rewindButton.setEnabled(true);

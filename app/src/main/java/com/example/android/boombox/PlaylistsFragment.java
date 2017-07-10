@@ -14,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SeekBar;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -37,10 +38,13 @@ public class PlaylistsFragment extends Fragment {
 
     //Keeps track of Current Song
     private int currentIndex = 0;
+
+    //Variable to Store song information
+    private TextView songTitle;
     private String artistName;
 
     private MediaPlayer mMediaPlayer;
-    private ImageView hidePlayIcon;
+
     private MediaPlayer.OnCompletionListener mCompletionListener = new MediaPlayer.OnCompletionListener() {
         @Override
        public void onCompletion(MediaPlayer mp) {
@@ -95,6 +99,8 @@ public class PlaylistsFragment extends Fragment {
         seekBar = (SeekBar) rootView.findViewById(R.id.seekBar);
         seekBar.setClickable(false);
 
+        songTitle = (TextView) rootView.findViewById(R.id.songInformation);
+
 
         //startTimeView = (TextView) rootView.findViewById(R.id.startTime);
         //songTitle = (TextView) rootView.findViewById(R.id.songTitle);
@@ -128,8 +134,7 @@ public class PlaylistsFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //Hide the music controls until a user clicks on a song for better User Experience
-                // musicControls.setVisibility(View.VISIBLE);
+
                 final Word word = songs.get(position);
                 releaseMediaPlayer();
 
@@ -139,7 +144,7 @@ public class PlaylistsFragment extends Fragment {
                     mMediaPlayer = MediaPlayer.create(getActivity(), word.getSoundResourceId());
                     artistName= word.getTitle();
                     mMediaPlayer.start();
-                    //songTitle.setText(artistName);
+                    songTitle.setText(word.getArtistName() + " - " + word.getTitle() + ".mp3");
 
                     //Enable buttons so that they are clickable
                     //previousButton.setEnabled(true); Still need to fix Previous track method
@@ -160,6 +165,7 @@ public class PlaylistsFragment extends Fragment {
                             if (currentIndex < (songs.size() - 1)) {
                                 mMediaPlayer = MediaPlayer.create(getActivity(), word.getSoundResourceId() + currentIndex);
                                 mMediaPlayer.start();
+                                songTitle.setText(word.getArtistName() + " - " + word.getTitle() + ".mp3");
                             }
                         }
                     });
@@ -175,6 +181,7 @@ public class PlaylistsFragment extends Fragment {
                             if (currentIndex > 1) {
                                 mMediaPlayer = MediaPlayer.create(getActivity(),currentIndex -1);
                                 mMediaPlayer.start();
+                                songTitle.setText(word.getArtistName() + "-" + word.getTitle() + ".mp3");
                             }
                         }
                     });
