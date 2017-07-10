@@ -217,6 +217,7 @@ public class PlaylistsFragment extends Fragment {
                 if((temp+forwardTime)<=finalTime){
                     startTime = startTime + forwardTime;
                     mMediaPlayer.seekTo((int) startTime);
+
                 }
             }
         });

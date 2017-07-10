@@ -27,7 +27,6 @@ public class AlbumsFragment extends Fragment {
 
     private ImageView previousButton, rewindButton, pauseButton, playButton, forwardButton, nextButton;
     private SeekBar seekBar;
-    //private TextView startTimeView, songTitle, endTimeView;
 
     private double startTime = 0;
     private double finalTime = 0;
@@ -98,9 +97,6 @@ public class AlbumsFragment extends Fragment {
         seekBar = (SeekBar) rootView.findViewById(R.id.seekBar);
         seekBar.setClickable(false);
 
-        //startTimeView = (TextView) rootView.findViewById(R.id.startTime);
-        // endTimeView = (TextView) rootView.findViewById(R.id.endTime);
-
 
         mAudioManager = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
 
@@ -145,7 +141,7 @@ public class AlbumsFragment extends Fragment {
                     artistName= word.getArtistName();
                     songName= word.getTitle();
                     mMediaPlayer.start();
-                    songTitle.setText(artistName + " - "+ songName + ".mp3");
+                   songTitle.setText(artistName + " - "+ songName + ".mp3");
 
                     //Enable buttons so that they are clickable
                     //previousButton.setEnabled(true); Still need to fix Previous track method
@@ -166,7 +162,7 @@ public class AlbumsFragment extends Fragment {
                             if (currentIndex < (songs.size() - 1)) {
                                 mMediaPlayer = MediaPlayer.create(getActivity(), word.getSoundResourceId() + currentIndex);
                                 mMediaPlayer.start();
-                                songTitle.setText(word.getArtistName() + " - " + word.getTitle() + ".mp3");
+                                songTitle.setText(word.getArtistName() + "-" + word.getTitle() + ".mp3");
                             }
                         }
                     });
@@ -267,6 +263,7 @@ public class AlbumsFragment extends Fragment {
                 playButton.setVisibility(View.GONE);
                 //Displays "Pause" button and replaces the "Play" button on the controls layout
                 pauseButton.setVisibility(View.VISIBLE);
+
 
                 //Enable buttons so that the user can user them to manage songs
                 //previousButton.setEnabled(true);
